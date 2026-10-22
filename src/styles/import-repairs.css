@@ -1,0 +1,15 @@
+.import-menu-overlay { position: fixed; inset: 0; z-index: 60; background: oklch(0 0 0 / 0.8); }
+.import-menu { position: fixed; inset: 0 0 0 auto; z-index: 61; width: 88vw; max-width: 24rem; height: 100dvh; overflow-y: auto; padding: 1.5rem; background: var(--color-site-import-background); color: var(--color-site-import-foreground); border-left: 1px solid var(--color-site-import-border); }
+.import-menu-title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; }
+.import-menu nav { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 1.5rem; }
+.import-menu nav a { padding: 0.75rem 1rem; border-radius: 0.75rem; font-family: var(--font-display); font-weight: 600; }
+.import-menu nav a:hover { background: var(--color-site-import-muted); }
+.import-menu-contact { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-site-import-border); }
+.import-menu-contact a { display: flex; justify-content: center; gap: 0.5rem; padding: 0.875rem; border-radius: 9999px; font-weight: 600; background: var(--color-site-import-primary); }
+.import-menu-contact p { margin-top: 0.75rem; color: var(--color-site-import-muted-foreground); font-size: 0.875rem; }
+.import-menu-close { position: absolute; top: 1rem; right: 1rem; display: grid; width: 1.5rem; height: 1.5rem; place-items: center; border-radius: 9999px; border: 1px solid var(--color-site-import-primary); }
+.import-faq-answer { padding-bottom: 1.25rem; line-height: 1.625; color: var(--color-site-import-muted-foreground); }
+[role="radio"][aria-checked="true"] { border-color: var(--color-site-import-primary) !important; background: var(--color-site-import-muted); }
+.import-message { max-width: 85%; margin: 0.625rem 0 0.625rem auto; padding: 0.625rem 0.875rem; border-radius: 1rem; background: var(--color-site-import-muted); color: var(--color-site-import-foreground); font-size: 0.82rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.import-message-label { font-size: 0.6rem; color: var(--color-site-import-primary); margin-bottom: 0.25rem; }
+@media (prefers-reduced-motion: reduce) { [data-site-import-document-lang] *, [data-site-import-document-lang] *::before, [data-site-import-document-lang] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
