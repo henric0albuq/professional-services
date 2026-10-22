@@ -329,9 +329,6 @@ function Index() {
                           <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-site-import-muted-foreground">Social Media</span>
                         </div>
                         <h3 className="font-display text-[1.25rem] font-bold leading-7 m-0 mt-4! relative text-balance text-site-import-foreground">Pacote Digital</h3>
-                        <div className="mt-4 relative">
-                          <p className="font-display text-[1.875rem] font-extrabold tracking-tight leading-9 m-0 text-pretty text-site-import-foreground">R$ 1.200</p>
-                        </div>
                         <ul className="space-y-2.5 flex-1 list-none m-0 mt-6! p-0 relative">
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Planejamento de Instagram</li>
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed mb-[calc(0.625rem_*_var(--tw-space-y-reverse))] mt-[calc(0.625rem_*_calc(1_-_var(--tw-space-y-reverse)))] text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Até 9 posts no primeiro mês</li>
@@ -342,7 +339,7 @@ function Index() {
                         </ul>
                         <p className="text-[0.875rem] leading-relaxed m-0 mt-6! relative text-pretty text-site-import-muted-foreground">Para negócios que precisam melhorar a presença online e começar a divulgar seus produtos ou serviços.</p>
                         <div className="mt-6 relative">
-                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Quero%20o%20Pacote%20Digital%20(Social%20Media)%20de%20R%24%201.200.%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Digital</a>
+                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Quero%20o%20Pacote%20Digital%20(Social%20Media)%2E%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Digital</a>
                         </div>
                       </article>
                     </div>
@@ -353,9 +350,6 @@ function Index() {
                           <div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(199_92%_96%)] border-[hsl(199_89%_45%/0.25)]! rounded-[9999px] border! inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] text-[#0a4f7f] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Promoção de abertura</div>
                         </div>
                         <h3 className="font-display text-[1.25rem] font-bold leading-7 m-0 mt-4! relative text-balance text-site-import-foreground">Pacote Organização</h3>
-                        <div className="mt-4 relative">
-                          <p className="font-display text-[1.875rem] font-extrabold tracking-tight leading-9 m-0 text-pretty text-site-import-foreground">R$ 700</p>
-                        </div>
                         <ul className="space-y-2.5 flex-1 list-none m-0 mt-6! p-0 relative">
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Landing page profissional de página única</li>
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed mb-[calc(0.625rem_*_var(--tw-space-y-reverse))] mt-[calc(0.625rem_*_calc(1_-_var(--tw-space-y-reverse)))] text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Layout responsivo: celular, tablet e computador</li>
@@ -368,7 +362,7 @@ function Index() {
                         </ul>
                         <p className="text-[0.875rem] leading-relaxed m-0 mt-6! relative text-pretty text-site-import-muted-foreground">Para pequenas e médias empresas e profissionais autônomos que precisam de um site organizado e pronto para receber clientes.</p>
                         <div className="mt-6 relative">
-                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561982781806?text=Ol%C3%A1!%20Quero%20o%20Pacote%20Organiza%C3%A7%C3%A3o%20(Landing%20Page)%20de%20R%24%20700.%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Organização</a>
+                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561982781806?text=Ol%C3%A1!%20Quero%20o%20Pacote%20Organiza%C3%A7%C3%A3o%20(Landing%20Page)%2E%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Organização</a>
                         </div>
                       </article>
                     </div>
@@ -378,9 +372,6 @@ function Index() {
                           <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-site-import-muted-foreground">Organização financeira</span>
                         </div>
                         <h3 className="font-display text-[1.25rem] font-bold leading-7 m-0 mt-4! relative text-balance text-site-import-foreground">Pacote Planilhas Financeiras</h3>
-                        <div className="mt-4 relative">
-                          <p className="font-display text-[1.875rem] font-extrabold tracking-tight leading-9 m-0 text-pretty text-site-import-foreground">R$ 1.800</p>
-                        </div>
                         <ul className="space-y-2.5 flex-1 list-none m-0 mt-6! p-0 relative">
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Planilha financeira personalizada</li>
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed mb-[calc(0.625rem_*_var(--tw-space-y-reverse))] mt-[calc(0.625rem_*_calc(1_-_var(--tw-space-y-reverse)))] text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Power BI</li>
@@ -390,7 +381,7 @@ function Index() {
                         </ul>
                         <p className="text-[0.875rem] leading-relaxed m-0 mt-6! relative text-pretty text-site-import-muted-foreground">Uma solução completa para sua organização financeira em um só lugar.</p>
                         <div className="mt-6 relative">
-                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Quero%20o%20Pacote%20de%20Planilhas%20Financeiras%20de%20R%24%201.800.%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Financeiro</a>
+                          <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap w-full bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Quero%20o%20Pacote%20de%20Planilhas%20Financeiras%2E%20Pode%20me%20explicar%20como%20funciona%3F" rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Quero o Pacote Financeiro</a>
                         </div>
                       </article>
                     </div>
@@ -429,9 +420,6 @@ function Index() {
                           <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-site-import-muted-foreground">Story maker em tempo real</span>
                         </div>
                         <h3 className="font-display text-[1.25rem] font-bold leading-7 m-0 mt-4! relative text-balance text-site-import-foreground">Cobertura de Eventos</h3>
-                        <div className="mt-4 relative">
-                          <p className="font-display text-[1.875rem] font-extrabold tracking-tight leading-9 m-0 text-pretty text-site-import-foreground">R$ 1.600</p>
-                        </div>
                         <ul className="space-y-2.5 flex-1 list-none m-0 mt-6! p-0 relative">
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Cobertura com stories durante todo o evento</li>
                           <li className="items-start flex text-[0.92rem] gap-2.5 leading-relaxed mb-[calc(0.625rem_*_var(--tw-space-y-reverse))] mt-[calc(0.625rem_*_calc(1_-_var(--tw-space-y-reverse)))] text-[#14181ad9]"><svg className="text-[hsl(163_84%_44%)] block shrink-0 h-4 mt-0.5 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Até 4 horas de evento</li>
@@ -447,135 +435,6 @@ function Index() {
                         </div>
                       </article>
                     </div>
-                  </div>
-                  <p className="text-[0.875rem] leading-relaxed m-0 ml-auto! mr-auto! mt-10! max-w-2xl text-center text-pretty text-site-import-muted-foreground">Os valores apresentados são para projetos de escopo inicial. Necessidades específicas podem receber orçamento personalizado.</p>
-                </div>
-              </section>
-              <section className="relative bg-[#f3f5f780] py-16 px-0 md:py-24 md:px-0">
-                <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
-                  <div className="items-center flex flex-col gap-4 opacity-100 text-center transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
-                    <div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(160_55%_96%)] border-[hsl(163_84%_44%/0.25)]! rounded-[9999px] border! text-site-import-primary inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Comparação</div>
-                    <h2 className="font-bold m-0 max-w-3xl text-balance text-site-import-foreground text-[28px] tracking-[-0.7px] leading-[33.04px] md:text-[40px] md:tracking-[-1px] md:leading-10">Serviço individual, dois serviços ou pacote completo</h2>
-                    <p className="m-0 max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[16.8px] md:leading-[27.3px]">Veja de forma simples o que muda em cada escolha. O pacote completo reúne tudo em um único escopo.</p>
-                  </div>
-                  <div className="mt-12 opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] hidden [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)] md:block">
-                    <div className="shadow-card border-[hsl(var(--border)/0.7)]! rounded-[1.5rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] overflow-hidden bg-white">
-                      <table className="border-collapse text-left indent-0 w-full [border-color:inherit]!">
-                        <caption className="border-0! h-px -m-px overflow-hidden p-0 absolute whitespace-nowrap w-px [clip:rect(0px,0px,0px,0px)]">Comparação entre contratar um serviço individual, dois serviços ou o pacote completo</caption>
-                        <thead>
-                          <tr className="border-b border-[hsl(var(--border)/0.7)]!">
-                            <th className="font-display text-[0.875rem] font-semibold leading-5 pb-4 pl-6 pr-6 pt-4 bg-[#f3f5f766] text-site-import-foreground" scope="col">Serviço</th>
-                            <th className="font-display text-[0.875rem] font-semibold leading-5 pb-4 pl-6 pr-6 pt-4 bg-[#f3f5f766] text-site-import-foreground" scope="col">Individual</th>
-                            <th className="font-display text-[0.875rem] font-semibold leading-5 pb-4 pl-6 pr-6 pt-4 bg-[#f3f5f766] text-site-import-foreground" scope="col">2 serviços</th>
-                            <th className="font-display bg-[hsl(160_55%_96%)] text-site-import-primary text-[0.875rem] font-semibold leading-5 pb-4 pl-6 pr-6 pt-4" scope="col">
-                              <span className="items-center flex gap-2">Completo<div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(163_84%_44%)] border-transparent! rounded-[9999px] border! text-[hsl(200_20%_8%)] inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Mais completo</div></span>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="border-b border-[hsl(var(--border)/0.6)]!">
-                            <th className="font-normal pb-5 pl-6 pr-6 pt-5 align-top" scope="row">
-                              <span className="font-display text-[1rem] font-semibold leading-6 text-site-import-foreground">Landing pages</span>
-                              <span className="block text-[0.875rem] leading-relaxed mt-1 max-w-xs text-site-import-muted-foreground">Site de página única, responsivo e com botões de contato</span>
-                            </th>
-                            <td className="text-[0.875rem] font-semibold leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-foreground">R$ 700</td>
-                            <td className="text-[0.875rem] leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-muted-foreground">Orçamento sob medida</td>
-                            <td className="bg-[hsl(160_55%_96%/0.6)] pb-5 pl-6 pr-6 pt-5 align-top">
-                              <span className="items-center text-site-import-primary inline-flex text-[0.875rem] font-semibold gap-2 leading-5"><svg className="block h-4 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Incluído</span>
-                            </td>
-                          </tr>
-                          <tr className="border-b border-[hsl(var(--border)/0.6)]!">
-                            <th className="font-normal pb-5 pl-6 pr-6 pt-5 align-top" scope="row">
-                              <span className="font-display text-[1rem] font-semibold leading-6 text-site-import-foreground">Marketing / Social Media</span>
-                              <span className="block text-[0.875rem] leading-relaxed mt-1 max-w-xs text-site-import-muted-foreground">Planejamento de conteúdo, posts, reels e stories</span>
-                            </th>
-                            <td className="text-[0.875rem] font-semibold leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-foreground">R$ 1.200</td>
-                            <td className="text-[0.875rem] leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-muted-foreground">Orçamento sob medida</td>
-                            <td className="bg-[hsl(160_55%_96%/0.6)] pb-5 pl-6 pr-6 pt-5 align-top">
-                              <span className="items-center text-site-import-primary inline-flex text-[0.875rem] font-semibold gap-2 leading-5"><svg className="block h-4 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Incluído</span>
-                            </td>
-                          </tr>
-                          <tr className="border-b border-[hsl(var(--border)/0.6)]! border-0!">
-                            <th className="font-normal pb-5 pl-6 pr-6 pt-5 align-top" scope="row">
-                              <span className="font-display text-[1rem] font-semibold leading-6 text-site-import-foreground">Planilha Financeira</span>
-                              <span className="block text-[0.875rem] leading-relaxed mt-1 max-w-xs text-site-import-muted-foreground">Controle financeiro, fluxo de caixa e painel no Power BI</span>
-                            </th>
-                            <td className="text-[0.875rem] font-semibold leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-foreground">R$ 1.800</td>
-                            <td className="text-[0.875rem] leading-5 pb-5 pl-6 pr-6 pt-5 align-top text-site-import-muted-foreground">Orçamento sob medida</td>
-                            <td className="bg-[hsl(160_55%_96%/0.6)] pb-5 pl-6 pr-6 pt-5 align-top">
-                              <span className="items-center text-site-import-primary inline-flex text-[0.875rem] font-semibold gap-2 leading-5"><svg className="block h-4 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M20 6 9 17l-5-5" /></svg>Incluído</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div className="gap-4 mt-10 grid md:hidden">
-                    <div className="opacity-0 delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] transform-[matrix(1,_0,_0,_1,_0,_16)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)] md:transform-none">
-                      <div className="shadow-card border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] p-5 bg-white">
-                        <p className="font-display text-[1rem] font-semibold leading-6 m-0 text-pretty text-site-import-foreground">Landing pages</p>
-                        <p className="text-[0.875rem] leading-relaxed m-0 mt-1! text-pretty text-site-import-muted-foreground">Site de página única, responsivo e com botões de contato</p>
-                        <dl className="space-y-2 text-[0.875rem] leading-5 m-0 mt-4!">
-                          <div className="items-center flex gap-3 justify-between">
-                            <dt className="text-site-import-muted-foreground">Individual</dt>
-                            <dd className="font-semibold m-0 text-site-import-foreground">R$ 700</dd>
-                          </div>
-                          <div className="items-center flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))]">
-                            <dt className="text-site-import-muted-foreground">2 serviços</dt>
-                            <dd className="m-0 text-[#14181acc]">Orçamento sob medida</dd>
-                          </div>
-                          <div className="items-center bg-[hsl(160_55%_96%)] rounded-[0.75rem] flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))] pb-2 pl-3 pr-3 pt-2">
-                            <dt className="text-site-import-primary font-medium">Completo</dt>
-                            <dd className="text-site-import-primary font-semibold m-0">Incluído</dd>
-                          </div>
-                        </dl>
-                      </div>
-                    </div>
-                    <div className="opacity-0 delay-50 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] transform-[matrix(1,_0,_0,_1,_0,_16)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)] md:transform-none">
-                      <div className="shadow-card border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] p-5 bg-white">
-                        <p className="font-display text-[1rem] font-semibold leading-6 m-0 text-pretty text-site-import-foreground">Marketing / Social Media</p>
-                        <p className="text-[0.875rem] leading-relaxed m-0 mt-1! text-pretty text-site-import-muted-foreground">Planejamento de conteúdo, posts, reels e stories</p>
-                        <dl className="space-y-2 text-[0.875rem] leading-5 m-0 mt-4!">
-                          <div className="items-center flex gap-3 justify-between">
-                            <dt className="text-site-import-muted-foreground">Individual</dt>
-                            <dd className="font-semibold m-0 text-site-import-foreground">R$ 1.200</dd>
-                          </div>
-                          <div className="items-center flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))]">
-                            <dt className="text-site-import-muted-foreground">2 serviços</dt>
-                            <dd className="m-0 text-[#14181acc]">Orçamento sob medida</dd>
-                          </div>
-                          <div className="items-center bg-[hsl(160_55%_96%)] rounded-[0.75rem] flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))] pb-2 pl-3 pr-3 pt-2">
-                            <dt className="text-site-import-primary font-medium">Completo</dt>
-                            <dd className="text-site-import-primary font-semibold m-0">Incluído</dd>
-                          </div>
-                        </dl>
-                      </div>
-                    </div>
-                    <div className="opacity-0 delay-100 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] transform-[matrix(1,_0,_0,_1,_0,_16)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)] md:transform-none">
-                      <div className="shadow-card border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] p-5 bg-white">
-                        <p className="font-display text-[1rem] font-semibold leading-6 m-0 text-pretty text-site-import-foreground">Planilha Financeira</p>
-                        <p className="text-[0.875rem] leading-relaxed m-0 mt-1! text-pretty text-site-import-muted-foreground">Controle financeiro, fluxo de caixa e painel no Power BI</p>
-                        <dl className="space-y-2 text-[0.875rem] leading-5 m-0 mt-4!">
-                          <div className="items-center flex gap-3 justify-between">
-                            <dt className="text-site-import-muted-foreground">Individual</dt>
-                            <dd className="font-semibold m-0 text-site-import-foreground">R$ 1.800</dd>
-                          </div>
-                          <div className="items-center flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))]">
-                            <dt className="text-site-import-muted-foreground">2 serviços</dt>
-                            <dd className="m-0 text-[#14181acc]">Orçamento sob medida</dd>
-                          </div>
-                          <div className="items-center bg-[hsl(160_55%_96%)] rounded-[0.75rem] flex gap-3 justify-between mb-[calc(0.5rem_*_var(--tw-space-y-reverse))] mt-[calc(0.5rem_*_calc(1_-_var(--tw-space-y-reverse)))] pb-2 pl-3 pr-3 pt-2">
-                            <dt className="text-site-import-primary font-medium">Completo</dt>
-                            <dd className="text-site-import-primary font-semibold m-0">Incluído</dd>
-                          </div>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="items-center flex flex-col gap-5 mt-10 text-center">
-                    <p className="text-[1rem] leading-relaxed m-0 max-w-2xl text-pretty text-[#14181ad9]">Não sabe qual escolher? Fale comigo e eu ajudo a identificar o pacote mais adequado para o seu negócio.</p>
-                    <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-card hover:-translate-y-0.5 hover:shadow-elegant items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap bg-site-import-foreground text-white [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(var(--primary)/0.9)] hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20N%C3%A3o%20sei%20qual%20pacote%20escolher%20e%20gostaria%20de%20ajuda%20para%20identificar%20a%20melhor%20op%C3%A7%C3%A3o%20para%20o%20meu%20neg%C3%B3cio." rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Me ajudar a escolher</a>
-                    <p className="text-[0.875rem] leading-relaxed m-0 max-w-2xl text-pretty text-site-import-muted-foreground">Valores iniciais para escopos definidos. Projetos personalizados podem ter orçamento diferente.</p>
                   </div>
                 </div>
               </section>
