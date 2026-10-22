@@ -438,7 +438,6 @@ function Index() {
                   </div>
                 </div>
               </section>
-              </section>
               <section className="relative bg-white py-16 px-0 md:py-24 md:px-0">
                 <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
                   <div className="items-center flex flex-col gap-4 opacity-100 text-center transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
