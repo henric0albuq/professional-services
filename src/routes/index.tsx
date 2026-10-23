@@ -58,28 +58,75 @@ function Index() {
       });
     });
 
-    // Processo: 3D parallax on scroll
+    // Processo: 3D parallax on scroll (on the wrapper) + hover/touch tilt (on the card)
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
     const items = Array.from(document.querySelectorAll<HTMLElement>("[data-scroll-3d] > li"));
     let raf = 0;
     const update = () => {
       raf = 0;
       const vh = window.innerHeight;
       items.forEach((li, i) => {
-        const card = li.querySelector<HTMLElement>(":scope > div > div");
-        if (!card) return;
+        const wrap = li.querySelector<HTMLElement>(":scope > div");
+        if (!wrap) return;
         const r = li.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) return;
         const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / (vh / 2)));
-        const depth = 1 + (i % 3) * 0.35;
-        card.style.transform = `perspective(1000px) translateY(${(p * 40 * depth).toFixed(1)}px) rotateX(${(p * 18).toFixed(2)}deg) rotateY(${(p * ((i % 3) - 1) * 10).toFixed(2)}deg) scale(${(1 - Math.abs(p) * 0.06).toFixed(3)})`;
-        card.style.opacity = String(1 - Math.abs(p) * 0.35);
+        if (coarse) {
+          // Lighter on touch screens: small movement, no sideways rotation
+          wrap.style.transform = `perspective(900px) translate3d(0, ${(p * 18).toFixed(1)}px, 0) rotateX(${(p * 10).toFixed(2)}deg)`;
+          wrap.style.opacity = String(1 - Math.abs(p) * 0.2);
+        } else {
+          const depth = 1 + (i % 3) * 0.35;
+          wrap.style.transform = `perspective(1000px) translate3d(0, ${(p * 40 * depth).toFixed(1)}px, 0) rotateX(${(p * 18).toFixed(2)}deg) rotateY(${(p * ((i % 3) - 1) * 10).toFixed(2)}deg) scale(${(1 - Math.abs(p) * 0.06).toFixed(3)})`;
+          wrap.style.opacity = String(1 - Math.abs(p) * 0.35);
+        }
       });
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
     items.forEach((li) => {
+      const wrap = li.querySelector<HTMLElement>(":scope > div");
       const card = li.querySelector<HTMLElement>(":scope > div > div");
-      if (card) card.style.willChange = "transform, opacity";
+      if (wrap) {
+        wrap.style.willChange = "transform, opacity";
+        wrap.style.transition = "none";
+        wrap.style.transformStyle = "preserve-3d";
+      }
+      if (!card) return;
+      card.style.transformStyle = "preserve-3d";
+      const tilt = (e: PointerEvent, strength: number) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = "transform 120ms ease-out, box-shadow 300ms";
+        card.style.transform = `perspective(800px) rotateX(${(-y * strength).toFixed(2)}deg) rotateY(${(x * strength).toFixed(2)}deg) translateZ(10px) scale(1.02)`;
+        card.style.boxShadow = `${(-x * 18).toFixed(1)}px ${(16 - y * 8).toFixed(1)}px 36px -12px oklch(0.55 0.11 168 / 0.35)`;
+      };
+      const reset = () => {
+        card.style.transition = "transform 450ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 450ms";
+        card.style.transform = "";
+        card.style.boxShadow = "";
+      };
+      const move = (e: PointerEvent) => {
+        if (e.pointerType === "mouse") tilt(e, 14);
+      };
+      // Touch: gentle tilt on press only; never prevents default, so scrolling stays smooth
+      const down = (e: PointerEvent) => {
+        if (e.pointerType !== "mouse") tilt(e, 8);
+      };
+      card.addEventListener("pointermove", move, { passive: true });
+      card.addEventListener("pointerdown", down, { passive: true });
+      card.addEventListener("pointerleave", reset);
+      card.addEventListener("pointerup", reset);
+      card.addEventListener("pointercancel", reset);
+      cleanups.push(() => {
+        card.removeEventListener("pointermove", move);
+        card.removeEventListener("pointerdown", down);
+        card.removeEventListener("pointerleave", reset);
+        card.removeEventListener("pointerup", reset);
+        card.removeEventListener("pointercancel", reset);
+      });
     });
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
