@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
 import { createFileRoute } from "@tanstack/react-router";
@@ -21,6 +21,77 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [projectType, setProjectType] = useState("");
   const [fields, setFields] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const cleanups: Array<() => void> = [];
+
+    // Diferenciais: 3D tilt on hover
+    const tiltCards = Array.from(document.querySelectorAll<HTMLElement>("[data-tilt-3d] > div > div"));
+    tiltCards.forEach((card) => {
+      card.style.transformStyle = "preserve-3d";
+      card.style.willChange = "transform";
+      const move = (e: PointerEvent) => {
+        if (e.pointerType !== "mouse") return;
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transition = "transform 80ms linear, box-shadow 300ms";
+        card.style.transform = `perspective(800px) rotateX(${(-y * 14).toFixed(2)}deg) rotateY(${(x * 14).toFixed(2)}deg) translateZ(12px) scale(1.03)`;
+        card.style.boxShadow = `${(-x * 20).toFixed(1)}px ${(18 - y * 10).toFixed(1)}px 40px -12px oklch(0.55 0.11 168 / 0.35)`;
+        Array.from(card.children).forEach((c, i) => {
+          (c as HTMLElement).style.transform = `translateZ(${30 - i * 8}px)`;
+        });
+      };
+      const leave = () => {
+        card.style.transition = "transform 500ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 500ms";
+        card.style.transform = "";
+        card.style.boxShadow = "";
+        Array.from(card.children).forEach((c) => ((c as HTMLElement).style.transform = ""));
+      };
+      card.addEventListener("pointermove", move);
+      card.addEventListener("pointerleave", leave);
+      cleanups.push(() => {
+        card.removeEventListener("pointermove", move);
+        card.removeEventListener("pointerleave", leave);
+      });
+    });
+
+    // Processo: 3D parallax on scroll
+    const items = Array.from(document.querySelectorAll<HTMLElement>("[data-scroll-3d] > li"));
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const vh = window.innerHeight;
+      items.forEach((li, i) => {
+        const card = li.querySelector<HTMLElement>(":scope > div > div");
+        if (!card) return;
+        const r = li.getBoundingClientRect();
+        const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / (vh / 2)));
+        const depth = 1 + (i % 3) * 0.35;
+        card.style.transform = `perspective(1000px) translateY(${(p * 40 * depth).toFixed(1)}px) rotateX(${(p * 18).toFixed(2)}deg) rotateY(${(p * ((i % 3) - 1) * 10).toFixed(2)}deg) scale(${(1 - Math.abs(p) * 0.06).toFixed(3)})`;
+        card.style.opacity = String(1 - Math.abs(p) * 0.35);
+      });
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    items.forEach((li) => {
+      const card = li.querySelector<HTMLElement>(":scope > div > div");
+      if (card) card.style.willChange = "transform, opacity";
+    });
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    cleanups.push(() => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    });
+
+    return () => cleanups.forEach((f) => f());
+  }, []);
   const entries = [["NOME", fields["name"]], ["TIPO DE PROJETO", projectType], ["E-MAIL", fields["email"]], ["TELEFONE", fields["phone"]], ["INVESTIMENTO", fields["budget"]], ["SOBRE O MEU NEGÓCIO", fields["business"]], ["O QUE PRECISO", fields["needs"]]].filter((entry) => entry[1]?.trim());
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -924,7 +995,7 @@ function Index() {
                     <h2 className="font-bold m-0 max-w-3xl text-balance text-site-import-foreground text-[28px] tracking-[-0.7px] leading-[33.04px] md:text-[40px] md:tracking-[-1px] md:leading-10">Por que trabalhar comigo?</h2>
                     <p className="m-0 max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[16.8px] md:leading-[27.3px]">O objetivo é simples: deixar claro o que você contrata, por quanto e com quem falar.</p>
                   </div>
-                  <div className="grid gap-4 mt-12 lg:grid-cols-4 sm:grid-cols-2">
+                  <div data-tilt-3d className="grid gap-4 mt-12 lg:grid-cols-4 sm:grid-cols-2">
                     <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <div className="shadow-card hover:-translate-y-1 border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] flex flex-col gap-3 h-full p-5 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="rounded-[1rem] text-site-import-accent grid h-10 place-items-center w-10 [background-image:linear-gradient(160deg,_hsl(200_16%_13%),_hsl(200_22%_6%))]">
@@ -1045,7 +1116,7 @@ function Index() {
                     <h2 className="font-bold m-0 max-w-3xl text-balance text-site-import-foreground text-[28px] tracking-[-0.7px] leading-[33.04px] md:text-[40px] md:tracking-[-1px] md:leading-10">Como funciona?</h2>
                     <p className="m-0 max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[16.8px] md:leading-[27.3px]">Seis passos simples, do primeiro contato até tudo funcionando.</p>
                   </div>
-                  <ol className="grid gap-5 list-none m-0 mt-12! p-0 lg:grid-cols-3 md:grid-cols-2">
+                  <ol data-scroll-3d className="grid gap-5 list-none m-0 mt-12! p-0 lg:grid-cols-3 md:grid-cols-2">
                     <li className="h-full">
                       <div className="h-full opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                         <div className="shadow-card border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] flex flex-col gap-3 h-full overflow-hidden p-6 relative bg-white">
