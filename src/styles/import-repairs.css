@@ -11,5 +11,7 @@
 .import-faq-answer { padding-bottom: 1.25rem; line-height: 1.625; color: var(--color-site-import-muted-foreground); }
 [role="radio"][aria-checked="true"] { border-color: var(--color-site-import-primary) !important; background: var(--color-site-import-muted); }
 .import-message { max-width: 85%; margin: 0.625rem 0 0.625rem auto; padding: 0.625rem 0.875rem; border-radius: 1rem; background: var(--color-site-import-muted); color: var(--color-site-import-foreground); font-size: 0.82rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.import-instagram-gradient { background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.import-instagram-gradient:hover { filter: brightness(1.06); }
 .import-message-label { font-size: 0.6rem; color: var(--color-site-import-primary); margin-bottom: 0.25rem; }
 @media (prefers-reduced-motion: reduce) { [data-site-import-document-lang] *, [data-site-import-document-lang] *::before, [data-site-import-document-lang] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
