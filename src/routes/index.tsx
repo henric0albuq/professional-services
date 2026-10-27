@@ -21,6 +21,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [projectType, setProjectType] = useState("");
   const [fields, setFields] = useState<Record<string, string>>({});
+  const [consultoriaServico, setConsultoriaServico] = useState<string | null>(null);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -148,6 +149,12 @@ function Index() {
     const message = "Olá! Tenho interesse nas soluções digitais.\n\n" + entries.map(([label, value]) => `${label}: ${value}`).join("\n\n");
     window.open(`https://wa.me/5561992316112?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
+  const toggleConsultoria = (nome: string) => setConsultoriaServico((s) => (s === nome ? null : nome));
+  const consultoriaWhatsAppHref = `https://wa.me/5561992316112?text=${encodeURIComponent(
+    consultoriaServico
+      ? `Olá! Gostaria de solicitar um diagnóstico inicial de consultoria empresarial.\n\nServiço de interesse: ${consultoriaServico}.`
+      : "Olá! Gostaria de solicitar um diagnóstico inicial de consultoria empresarial."
+  )}`;
   return (<><style>{repairCSS}</style><style>{capturedCSS.replace(/(<\/|<)(s)(tyle)/gi, (_, prefix, letter, rest) => prefix + (letter === "s" ? "\\73 " : "\\53 ") + rest)}</style>
     <>
       <div className="bg-[hsl(var(--background))]! text-[hsl(var(--foreground))]" data-site-import-document-lang="pt-BR">
@@ -569,6 +576,7 @@ function Index() {
                   </div>
                   <div className="items-center flex flex-col gap-3 mt-14">
                     <h3 className="font-display text-[1.375rem] font-bold leading-snug m-0 text-balance text-site-import-foreground">Nossas soluções em consultoria</h3>
+                    <p className="m-0 text-center text-site-import-muted-foreground text-[0.95rem] leading-relaxed">Clique ou toque em um serviço para selecioná-lo — ele já virá indicado na mensagem do WhatsApp.</p>
                   </div>
                   <div className="grid gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
                     <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
