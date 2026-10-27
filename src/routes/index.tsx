@@ -21,6 +21,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [projectType, setProjectType] = useState("");
   const [fields, setFields] = useState<Record<string, string>>({});
+  const [consultoriaServico, setConsultoriaServico] = useState<string | null>(null);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -148,6 +149,12 @@ function Index() {
     const message = "Olá! Tenho interesse nas soluções digitais.\n\n" + entries.map(([label, value]) => `${label}: ${value}`).join("\n\n");
     window.open(`https://wa.me/5561992316112?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
+  const toggleConsultoria = (nome: string) => setConsultoriaServico((s) => (s === nome ? null : nome));
+  const consultoriaWhatsAppHref = `https://wa.me/5561992316112?text=${encodeURIComponent(
+    consultoriaServico
+      ? `Olá! Gostaria de solicitar um diagnóstico inicial de consultoria empresarial.\n\nServiço de interesse: ${consultoriaServico}.`
+      : "Olá! Gostaria de solicitar um diagnóstico inicial de consultoria empresarial."
+  )}`;
   return (<><style>{repairCSS}</style><style>{capturedCSS.replace(/(<\/|<)(s)(tyle)/gi, (_, prefix, letter, rest) => prefix + (letter === "s" ? "\\73 " : "\\53 ") + rest)}</style>
     <>
       <div className="bg-[hsl(var(--background))]! text-[hsl(var(--foreground))]" data-site-import-document-lang="pt-BR">
@@ -569,9 +576,20 @@ function Index() {
                   </div>
                   <div className="items-center flex flex-col gap-3 mt-14">
                     <h3 className="font-display text-[1.375rem] font-bold leading-snug m-0 text-balance text-site-import-foreground">Nossas soluções em consultoria</h3>
+                    <p className="m-0 text-center text-site-import-muted-foreground text-[0.95rem] leading-relaxed">Clique ou toque em um serviço para selecioná-lo — ele já virá indicado na mensagem do WhatsApp.</p>
                   </div>
                   <div className="grid gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Diagnóstico Empresarial"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Diagnóstico Empresarial"}
+                      aria-label="Selecionar Diagnóstico Empresarial para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Diagnóstico Empresarial")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Diagnóstico Empresarial"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[hsl(160_55%_96%)] rounded-[1rem] text-site-import-primary grid h-12 place-items-center w-12">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
@@ -583,7 +601,17 @@ function Index() {
                         <p className="text-[0.95rem] leading-relaxed m-0 mt-3! text-pretty text-site-import-muted-foreground">Identificamos os principais desafios, pontos fortes, gargalos operacionais e oportunidades de melhoria do seu negócio. Uma análise estruturada para entender a realidade da empresa e definir prioridades para a evolução dos resultados.</p>
                       </div>
                     </div>
-                    <div className="opacity-100 transform-none delay-60 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-60 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Planejamento Estratégico"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Planejamento Estratégico"}
+                      aria-label="Selecionar Planejamento Estratégico para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Planejamento Estratégico")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Planejamento Estratégico"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[hsl(199_92%_96%)] rounded-[1rem] grid h-12 place-items-center w-12 text-[#0a4f7f]">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
@@ -596,7 +624,17 @@ function Index() {
                         <p className="text-[0.95rem] leading-relaxed m-0 mt-3! text-pretty text-site-import-muted-foreground">Transformamos objetivos em planos de ação. Ajudamos sua empresa a definir metas, estabelecer prioridades, identificar oportunidades de mercado e estruturar estratégias para crescer de forma organizada e competitiva.</p>
                       </div>
                     </div>
-                    <div className="opacity-100 transform-none delay-120 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-120 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Consultoria em Gestão Empresarial"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Consultoria em Gestão Empresarial"}
+                      aria-label="Selecionar Consultoria em Gestão Empresarial para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Consultoria em Gestão Empresarial")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Consultoria em Gestão Empresarial"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[#f3f5f7] rounded-[1rem] text-site-import-foreground grid h-12 place-items-center w-12">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
@@ -610,7 +648,17 @@ function Index() {
                         <p className="text-[0.95rem] leading-relaxed m-0 mt-3! text-pretty text-site-import-muted-foreground">Apoiamos o aprimoramento dos processos de gestão, organização interna, definição de indicadores, controle de resultados e desenvolvimento de soluções adequadas à realidade de cada negócio.</p>
                       </div>
                     </div>
-                    <div className="opacity-100 transform-none delay-180 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-180 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Gestão de Riscos"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Gestão de Riscos"}
+                      aria-label="Selecionar Gestão de Riscos para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Gestão de Riscos")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Gestão de Riscos"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[hsl(160_55%_96%)] rounded-[1rem] text-site-import-primary grid h-12 place-items-center w-12">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
@@ -621,7 +669,17 @@ function Index() {
                         <p className="text-[0.95rem] leading-relaxed m-0 mt-3! text-pretty text-site-import-muted-foreground">Auxiliamos na identificação, análise e tratamento de riscos que podem comprometer as operações, os resultados e a continuidade da empresa. O objetivo é fortalecer a capacidade de prevenção, reduzir vulnerabilidades e apoiar decisões mais seguras.</p>
                       </div>
                     </div>
-                    <div className="opacity-100 transform-none delay-240 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-240 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Consultoria para o Agronegócio"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Consultoria para o Agronegócio"}
+                      aria-label="Selecionar Consultoria para o Agronegócio para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Consultoria para o Agronegócio")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Consultoria para o Agronegócio"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[hsl(199_92%_96%)] rounded-[1rem] grid h-12 place-items-center w-12 text-[#0a4f7f]">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
@@ -635,7 +693,17 @@ function Index() {
                         <p className="text-[0.95rem] leading-relaxed m-0 mt-3! text-pretty text-site-import-muted-foreground">Contribuímos para o desenvolvimento e a profissionalização da gestão de negócios do agronegócio, com foco em planejamento, estratégia comercial, desenvolvimento de mercados, gestão de riscos e identificação de oportunidades de crescimento.</p>
                       </div>
                     </div>
-                    <div className="opacity-100 transform-none delay-300 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                    <div
+                      className="opacity-100 transform-none delay-300 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]"
+                      data-consultoria-card
+                      data-selected={consultoriaServico === "Estratégia Comercial e Desenvolvimento de Negócios"}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={consultoriaServico === "Estratégia Comercial e Desenvolvimento de Negócios"}
+                      aria-label="Selecionar Estratégia Comercial e Desenvolvimento de Negócios para o diagnóstico inicial"
+                      onClick={() => toggleConsultoria("Estratégia Comercial e Desenvolvimento de Negócios")}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleConsultoria("Estratégia Comercial e Desenvolvimento de Negócios"); } }}
+                    >
                       <div className="shadow-card group hover:-translate-y-1 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[1rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full p-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white text-site-import-foreground [animation-duration:300ms] hover:border-[hsl(163_84%_44%/0.4)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
                         <span className="bg-[#f3f5f7] rounded-[1rem] text-site-import-foreground grid h-12 place-items-center w-12">
                           <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
