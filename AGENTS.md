@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep imported page markup and interaction state in its route file, with separate CSS and local captured assets, to preserve source fidelity during repairs.
+- Keep portfolio service groups and gallery interaction state in the portfolio route, with uploaded media referenced through CDN asset pointers and gallery styling in a separate stylesheet, to preserve the imported page while supporting real work galleries.

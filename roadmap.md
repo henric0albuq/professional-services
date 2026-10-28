@@ -1,0 +1,3 @@
+- [x] Adicionar as quatro fotos reais de planilhas financeiras ao portfólio.
+- [x] Separar o portfólio em Planilhas financeiras, Consultorias empresariais, Social Media e Eventos ao vivo.
+- [ ] Conferir carregamento das fotos e navegação da galeria no computador e celular.
