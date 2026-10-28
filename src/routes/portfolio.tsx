@@ -1,4 +1,11 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
+import galleryCSS from "../styles/pages/portfolio-gallery.css?inline";
+import photo1 from "@/assets/tria-planilha-1.jpg.asset.json";
+import photo2 from "@/assets/tria-planilha-2.jpg.asset.json";
+import photo3 from "@/assets/tria-planilha-3.jpg.asset.json";
+import photo4 from "@/assets/tria-planilha-4.jpg.asset.json";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
 import { createFileRoute } from "@tanstack/react-router";
@@ -6,19 +13,34 @@ import capturedCSS from "../styles/pages/portfolio.css?inline";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({ meta: [
-    { title: "Portfólio de Social Media e Planilhas | TRIA+ Soluções Digitais" },
-    { name: "description", content: "Portfólio TRIA+: conteúdo para redes sociais, coberturas de eventos, planilhas financeiras e painéis para pequenos negócios." },
-    { property: "og:title", content: "Portfólio de Social Media e Planilhas | TRIA+ Soluções Digitais" },
-    { property: "og:description", content: "Conheça as áreas de trabalho da TRIA+: Social Media, conteúdo, planilhas financeiras e painéis." },
+    { title: "Nosso Portfólio por Serviço | TRIA+ Soluções Digitais" },
+    { name: "description", content: "Trabalhos reais da equipe TRIA em planilhas financeiras, consultoria empresarial, Social Media e eventos ao vivo." },
+    { property: "og:title", content: "Nosso Portfólio por Serviço | TRIA+ Soluções Digitais" },
+    { property: "og:description", content: "Conheça os trabalhos da TRIA organizados por serviço: planilhas financeiras, consultorias empresariais, Social Media e eventos ao vivo." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
   component: Index,
 });
 
+const financialPhotos = [
+  { asset: photo1, title: "Orçamentos e vendas", description: "Painel de gestão — Opportunity Box" },
+  { asset: photo2, title: "Pedidos e faturamento", description: "Controle de pedidos — Laços de Vó" },
+  { asset: photo3, title: "Controle de estoque", description: "Gestão de inventário — Sebo e Café Amado Jorge" },
+  { asset: photo4, title: "Cadastro de clientes", description: "Gestão de clientes — Opportunity Box" },
+];
+const portfolioServices = [
+  { id: "planilhas", title: "Planilhas financeiras", description: "Soluções personalizadas de controle e gestão, desenvolvidas pela equipe TRIA para negócios reais.", photos: financialPhotos },
+  { id: "consultorias-empresariais", title: "Consultorias empresariais", description: "Estratégia, organização e gestão para fortalecer os resultados do negócio.", photos: [] },
+  { id: "social-media", title: "Social Media", description: "Conteúdo e presença digital com a identidade de cada negócio.", photos: [] },
+  { id: "eventos-ao-vivo", title: "Eventos ao vivo", description: "Registros e cobertura dos momentos que fazem parte da sua história.", photos: [] },
+];
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  return (<><style>{repairCSS}</style><style>{capturedCSS.replace(/(<\/|<)(s)(tyle)/gi, (_, prefix, letter, rest) => prefix + (letter === "s" ? "\\73 " : "\\53 ") + rest)}</style>
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+  const activePhoto = selectedPhoto === null ? undefined : financialPhotos[selectedPhoto];
+  return (<><style>{repairCSS}</style><style>{galleryCSS}</style><style>{capturedCSS.replace(/(<\/|<)(s)(tyle)/gi, (_, prefix, letter, rest) => prefix + (letter === "s" ? "\\73 " : "\\53 ") + rest)}</style>
     <>
       <div className="bg-[hsl(var(--background))]! text-[hsl(var(--foreground))]" data-site-import-document-lang="pt-BR">
         <div className="min-h-full w-full [scroll-margin-top:6rem]" id="root">
@@ -61,8 +83,8 @@ function Index() {
                 <div className="ml-auto mr-auto pl-5 pr-5 relative w-full xl:max-w-7xl">
                   <div className="max-w-3xl opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                     <div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(160_55%_96%)] border-[hsl(163_84%_44%/0.25)]! rounded-[9999px] border! text-site-import-primary inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Portfólio</div>
-                    <h1 className="font-display font-extrabold m-0 mt-5! text-balance text-site-import-foreground text-[30.4px] tracking-[-0.76px] leading-[34.96px] md:text-[44px] md:tracking-[-1.1px] md:leading-10">Trabalhos de Social Media e Planilhas Financeiras</h1>
-                    <p className="m-0 mt-5! max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[18px] md:leading-7">Esta página está preparada para receber os trabalhos reais: coberturas de eventos, planejamentos de conteúdo, planilhas e painéis financeiros. Assim que os materiais estiverem organizados, eles ficam disponíveis aqui.</p>
+                    <h1 className="font-display font-extrabold m-0 mt-5! text-balance text-site-import-foreground text-[30.4px] tracking-[-0.76px] leading-[34.96px] md:text-[44px] md:tracking-[-1.1px] md:leading-10">Nosso Portfólio</h1>
+                    <p className="m-0 mt-5! max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[18px] md:leading-7">Trabalhos reais realizados pela equipe TRIA, com soluções pensadas para a realidade de cada negócio.</p>
                     <div className="flex flex-wrap gap-3 mt-8">
                       <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-glow hover:-translate-y-0.5 hover:brightness-[1.04] items-center rounded-[9999px] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] text-[hsl(200_20%_8%)] inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap [animation-duration:300ms] [background-image:linear-gradient(135deg,_hsl(163_90%_55%),_hsl(163_84%_44%)_48%,_hsl(165_87%_28%))] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))] hover:[filter:var(--tw-blur)_var(--tw-brightness)]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20gostaria%20de%20ver%20mais%20exemplos%20de%20trabalhos." rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Ver exemplos pelo WhatsApp</a>
                       <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:-translate-y-0.5 items-center border-[hsl(var(--input))]! rounded-[9999px] border! inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap bg-transparent text-site-import-foreground [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(160_55%_96%)] hover:border-[hsl(163_84%_44%/0.5)]! hover:text-site-import-foreground hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="/#servicos">Ver os serviços</a>
@@ -70,61 +92,49 @@ function Index() {
                   </div>
                 </div>
               </section>
-              <section className="relative bg-white py-16 px-0 [scroll-margin-top:6rem] md:py-24 md:px-0" id="social-media">
-                <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
-                  <div className="items-start flex flex-col gap-4 opacity-100 text-left transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
-                    <div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(160_55%_96%)] border-[hsl(163_84%_44%/0.25)]! rounded-[9999px] border! text-site-import-primary inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Portfólio</div>
-                    <h2 className="font-bold m-0 max-w-3xl text-balance text-site-import-foreground text-[28px] tracking-[-0.7px] leading-[33.04px] md:text-[40px] md:tracking-[-1px] md:leading-10">Social Media e conteúdo</h2>
-                    <p className="m-0 max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[16.8px] md:leading-[27.3px]">Planejamentos, posts, reels, stories e coberturas de evento com a identidade de cada negócio.</p>
-                  </div>
-                  <div className="mt-10 opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
-                    <div className="border-[hsl(var(--border))]! rounded-[1.5rem] border-dashed! border! text-center bg-[#ffffffb3] p-8 md:p-12">
-                      <span className="bg-[hsl(160_55%_96%)] rounded-[1rem] text-site-import-primary grid h-14 ml-auto mr-auto place-items-center w-14">
-                        <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
-                          <circle cx="18" cy="5" r="3" />
-                          <circle cx="6" cy="12" r="3" />
-                          <circle cx="18" cy="19" r="3" />
-                          <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
-                          <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
-                        </svg>
-                      </span>
-                      <p className="font-display text-[1.125rem] font-bold leading-7 m-0 mt-5! text-pretty text-site-import-foreground">Espaço reservado para trabalhos reais</p>
-                      <p className="text-[0.875rem] leading-relaxed m-0 ml-auto! mr-auto! mt-2! max-w-xl text-pretty text-site-import-muted-foreground">Os trabalhos de conteúdo serão publicados aqui. Se quiser ver exemplos agora, me chame no WhatsApp que eu envio os materiais direto para você.</p>
-                      <div className="flex justify-center mt-6">
-                        <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:-translate-y-0.5 items-center border-[hsl(var(--input))]! rounded-[9999px] border! inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap bg-transparent text-site-import-foreground [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(160_55%_96%)] hover:border-[hsl(163_84%_44%/0.5)]! hover:text-site-import-foreground hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20gostaria%20de%20ver%20mais%20exemplos%20de%20trabalhos." rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Ver exemplos pelo WhatsApp</a>
-                      </div>
+              <nav className="portfolio-service-nav" aria-label="Serviços do portfólio">
+                {portfolioServices.map(service => <a key={service.id} href={`#${service.id}`}>{service.title}<ArrowRight size={16} aria-hidden="true" /></a>)}
+              </nav>
+              {portfolioServices.map((service, serviceIndex) => (
+                <section key={service.id} id={service.id} className="portfolio-service-section" aria-labelledby={`${service.id}-title`}>
+                  <div className="portfolio-container">
+                    <div className="portfolio-service-heading">
+                      <span className="portfolio-service-number">0{serviceIndex + 1}</span>
+                      <div><h2 id={`${service.id}-title`}>{service.title}</h2><p>{service.description}</p></div>
                     </div>
-                  </div>
-                </div>
-              </section>
-              <section className="relative bg-[#f3f5f780] py-16 px-0 [scroll-margin-top:6rem] md:py-24 md:px-0" id="planilhas">
-                <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
-                  <div className="items-start flex flex-col gap-4 opacity-100 text-left transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
-                    <div className="focus:ring-2 focus:ring-ring focus:ring-offset-2 items-center bg-[hsl(160_55%_96%)] border-[hsl(163_84%_44%/0.25)]! rounded-[9999px] border! text-site-import-primary inline-flex text-[0.75rem] font-semibold gap-1.5 leading-4 pb-1 pl-3 pr-3 pt-1 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] focus:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus:outline-transparent focus:outline-solid focus:outline-2 focus:outline-offset-2">Portfólio</div>
-                    <h2 className="font-bold m-0 max-w-3xl text-balance text-site-import-foreground text-[28px] tracking-[-0.7px] leading-[33.04px] md:text-[40px] md:tracking-[-1px] md:leading-10">Planilhas financeiras e painéis</h2>
-                    <p className="m-0 max-w-2xl text-pretty text-site-import-muted-foreground text-[16px] leading-[26px] md:text-[16.8px] md:leading-[27.3px]">Controle financeiro, fluxo de caixa e painéis no Power BI feitos para a realidade de cada negócio.</p>
-                  </div>
-                  <div className="mt-10 opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
-                    <div className="border-[hsl(var(--border))]! rounded-[1.5rem] border-dashed! border! text-center bg-[#ffffffb3] p-8 md:p-12">
-                      <span className="bg-[hsl(160_55%_96%)] rounded-[1rem] text-site-import-primary grid h-14 ml-auto mr-auto place-items-center w-14">
-                        <svg className="block h-6 align-middle w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
-                          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-                          <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                          <path d="M8 13h2" />
-                          <path d="M14 13h2" />
-                          <path d="M8 17h2" />
-                          <path d="M14 17h2" />
-                        </svg>
-                      </span>
-                      <p className="font-display text-[1.125rem] font-bold leading-7 m-0 mt-5! text-pretty text-site-import-foreground">Espaço reservado para trabalhos reais</p>
-                      <p className="text-[0.875rem] leading-relaxed m-0 ml-auto! mr-auto! mt-2! max-w-xl text-pretty text-site-import-muted-foreground">As planilhas e os painéis serão publicados aqui. Posso te mostrar exemplos de estrutura e explicações no WhatsApp.</p>
-                      <div className="flex justify-center mt-6">
-                        <a className="ring-offset-background focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:-translate-y-0.5 items-center border-[hsl(var(--input))]! rounded-[9999px] border! inline-flex text-[0.95rem] font-semibold gap-2 h-12 justify-center pl-7 pr-7 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] whitespace-nowrap bg-transparent text-site-import-foreground [animation-duration:300ms] [text-decoration:inherit] disabled:opacity-50 disabled:pointer-events-none focus-visible:shadow-[var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0_0_#0000)] focus-visible:outline-transparent focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[hsl(160_55%_96%)] hover:border-[hsl(163_84%_44%/0.5)]! hover:text-site-import-foreground hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]" href="https://wa.me/5561992316112?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20planilhas%20financeiras." rel="noopener noreferrer" target="_blank"><svg className="block shrink-0 h-4 pointer-events-none align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Ver exemplos pelo WhatsApp</a>
+                    {service.photos.length > 0 ? (
+                      <div className="portfolio-photo-grid">
+                        {service.photos.map((photo, index) => (
+                          <figure className="portfolio-photo" key={photo.title}>
+                            <Button variant="ghost" className="portfolio-photo-open" onClick={() => setSelectedPhoto(index)} aria-label={`Ampliar foto: ${photo.title}`}>
+                              <img src={photo.asset.url} alt={`${photo.title} — ${photo.description}`} loading="lazy" decoding="async" />
+                              <span className="portfolio-expand"><Expand aria-hidden="true" /></span>
+                            </Button>
+                            <figcaption><h3>{photo.title}</h3><p>{photo.description}</p></figcaption>
+                          </figure>
+                        ))}
                       </div>
-                    </div>
+                    ) : <p className="portfolio-pending">Novos registros em breve.</p>}
                   </div>
-                </div>
-              </section>
+                </section>
+              ))}
+              <Dialog.Root open={selectedPhoto !== null} onOpenChange={open => { if (!open) setSelectedPhoto(null); }}>
+                <Dialog.Portal><Dialog.Overlay className="import-menu-overlay" />
+                  <Dialog.Content className="portfolio-lightbox" onKeyDown={event => {
+                    if (event.key === "ArrowRight") setSelectedPhoto(current => current === null ? null : (current + 1) % financialPhotos.length);
+                    if (event.key === "ArrowLeft") setSelectedPhoto(current => current === null ? null : (current + financialPhotos.length - 1) % financialPhotos.length);
+                  }}>
+                    <div className="portfolio-lightbox-heading"><Dialog.Title>{activePhoto?.title}</Dialog.Title><Dialog.Close asChild><Button variant="ghost" size="icon" aria-label="Fechar foto"><X /></Button></Dialog.Close></div>
+                    <Dialog.Description>{activePhoto?.description}</Dialog.Description>
+                    {activePhoto && <img src={activePhoto.asset.url} alt={`${activePhoto.title} — ${activePhoto.description}`} />}
+                    <div className="portfolio-lightbox-controls">
+                      <Button variant="outline" size="icon" aria-label="Foto anterior" onClick={() => setSelectedPhoto(current => current === null ? null : (current + financialPhotos.length - 1) % financialPhotos.length)}><ArrowLeft /></Button>
+                      <span aria-live="polite">{selectedPhoto === null ? 0 : selectedPhoto + 1} / {financialPhotos.length}</span>
+                      <Button variant="outline" size="icon" aria-label="Próxima foto" onClick={() => setSelectedPhoto(current => current === null ? null : (current + 1) % financialPhotos.length)}><ArrowRight /></Button>
+                    </div>
+                  </Dialog.Content>
+                </Dialog.Portal>
+              </Dialog.Root>
               <section className="relative py-16 px-0 md:py-24 md:px-0">
                 <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
                   <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
