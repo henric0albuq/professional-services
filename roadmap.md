@@ -1,3 +1,7 @@
 - [x] Adicionar as quatro fotos reais de planilhas financeiras ao portfólio.
 - [x] Separar o portfólio em Planilhas financeiras, Consultorias empresariais, Social Media e Eventos ao vivo.
 - [x] Conferir carregamento das fotos e navegação da galeria no computador e celular.
+- [ ] Adicionar três fotos à categoria Consultorias empresariais.
+- [ ] Criar acesso administrativo seguro por e-mail e senha, sem dados de perfil.
+- [ ] Permitir adicionar, editar e remover fotos e descrições nas quatro categorias.
+- [ ] Verificar alterações no portfólio público e restrição do acesso administrativo.
