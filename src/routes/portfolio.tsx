@@ -27,7 +27,7 @@ function Index() {
   const portfolioServices = portfolioCategories.map(c => ({ ...c, photos: photos.filter(p => p.category === c.id).map(p => ({ ...p, asset: { url: p.image_url } })) }));
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ service: number; index: number } | null>(null);
-  const financialPhotos = lightbox ? portfolioServices[lightbox.service].photos : [];
+  const financialPhotos = lightbox ? (portfolioServices[lightbox.service]?.photos ?? []) : [];
   const selectedPhoto = lightbox?.index ?? null;
   const setSelectedPhoto = (fn: number | null | ((c: number | null) => number | null)) => setLightbox(l => {
     const next = typeof fn === "function" ? fn(l?.index ?? null) : fn;
