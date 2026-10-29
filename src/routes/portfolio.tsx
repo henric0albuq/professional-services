@@ -99,8 +99,8 @@ function Index() {
                     {service.photos.length > 0 ? (
                       <div className="portfolio-photo-grid">
                         {service.photos.map((photo, index) => (
-                          <figure className="portfolio-photo" key={photo.title}>
-                            <Button variant="ghost" className="portfolio-photo-open" onClick={() => setSelectedPhoto(index)} aria-label={`Ampliar foto: ${photo.title}`}>
+                          <figure className="portfolio-photo" key={photo.id}>
+                            <Button variant="ghost" className="portfolio-photo-open" onClick={() => setLightbox({ service: serviceIndex, index })} aria-label={`Ampliar foto: ${photo.title}`}>
                               <img src={photo.asset.url} alt={`${photo.title} — ${photo.description}`} loading="lazy" decoding="async" />
                               <span className="portfolio-expand"><Expand aria-hidden="true" /></span>
                             </Button>
@@ -112,7 +112,7 @@ function Index() {
                   </div>
                 </section>
               ))}
-              <Dialog.Root open={selectedPhoto !== null} onOpenChange={open => { if (!open) setSelectedPhoto(null); }}>
+              <Dialog.Root open={lightbox !== null} onOpenChange={open => { if (!open) setLightbox(null); }}>
                 <Dialog.Portal><Dialog.Overlay className="import-menu-overlay" />
                   <Dialog.Content className="portfolio-lightbox" onKeyDown={event => {
                     if (event.key === "ArrowRight") setSelectedPhoto(current => current === null ? null : (current + 1) % financialPhotos.length);
