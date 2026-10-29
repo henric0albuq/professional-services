@@ -2,14 +2,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
 import galleryCSS from "../styles/pages/portfolio-gallery.css?inline";
-import photo1 from "@/assets/tria-planilha-1.jpg.asset.json";
-import photo2 from "@/assets/tria-planilha-2.jpg.asset.json";
-import photo3 from "@/assets/tria-planilha-3.jpg.asset.json";
-import photo4 from "@/assets/tria-planilha-4.jpg.asset.json";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
 import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/portfolio.css?inline";
+import { listPortfolioPhotos } from "@/lib/portfolio.functions";
+import { portfolioCategories } from "@/lib/portfolio-categories";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({ meta: [
@@ -20,25 +18,21 @@ export const Route = createFileRoute("/portfolio")({
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
+  loader: () => listPortfolioPhotos(),
   component: Index,
 });
 
-const financialPhotos = [
-  { asset: photo1, title: "Orçamentos e vendas", description: "Painel de gestão — Opportunity Box" },
-  { asset: photo2, title: "Pedidos e faturamento", description: "Controle de pedidos — Laços de Vó" },
-  { asset: photo3, title: "Controle de estoque", description: "Gestão de inventário — Sebo e Café Amado Jorge" },
-  { asset: photo4, title: "Cadastro de clientes", description: "Gestão de clientes — Opportunity Box" },
-];
-const portfolioServices = [
-  { id: "planilhas", title: "Planilhas financeiras", description: "Soluções personalizadas de controle e gestão, desenvolvidas pela equipe TRIA para negócios reais.", photos: financialPhotos },
-  { id: "consultorias-empresariais", title: "Consultorias empresariais", description: "Estratégia, organização e gestão para fortalecer os resultados do negócio.", photos: [] },
-  { id: "social-media", title: "Social Media", description: "Conteúdo e presença digital com a identidade de cada negócio.", photos: [] },
-  { id: "eventos-ao-vivo", title: "Eventos ao vivo", description: "Registros e cobertura dos momentos que fazem parte da sua história.", photos: [] },
-];
-
 function Index() {
+  const photos = Route.useLoaderData();
+  const portfolioServices = portfolioCategories.map(c => ({ ...c, photos: photos.filter(p => p.category === c.id).map(p => ({ ...p, asset: { url: p.image_url } })) }));
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+  const [lightbox, setLightbox] = useState<{ service: number; index: number } | null>(null);
+  const financialPhotos = lightbox ? portfolioServices[lightbox.service].photos : [];
+  const selectedPhoto = lightbox?.index ?? null;
+  const setSelectedPhoto = (fn: number | null | ((c: number | null) => number | null)) => setLightbox(l => {
+    const next = typeof fn === "function" ? fn(l?.index ?? null) : fn;
+    return next === null || !l ? null : { ...l, index: next };
+  });
   const activePhoto = selectedPhoto === null ? undefined : financialPhotos[selectedPhoto];
   return (<><style>{repairCSS}</style><style>{galleryCSS}</style><style>{capturedCSS.replace(/(<\/|<)(s)(tyle)/gi, (_, prefix, letter, rest) => prefix + (letter === "s" ? "\\73 " : "\\53 ") + rest)}</style>
     <>
