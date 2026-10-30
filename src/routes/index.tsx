@@ -192,7 +192,7 @@ function Index() {
                 </div>
               </div>
             </header>
-            <main className="flex-1">
+            <main className="flex-1" data-landing-compact="">
               <section className="overflow-hidden relative pt-10 pr-0 pb-16 pl-0 [scroll-margin-top:6rem] md:pt-14 md:pr-0 md:pb-24 md:pl-0" id="inicio">
                 <div className="bg-hero-glow inset-0 pointer-events-none absolute" aria-hidden="true" />
                 <div className="h-[26rem] left-0 opacity-50 pointer-events-none absolute right-0 top-0 [background-image:linear-gradient(hsl(var(--border)/0.7)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.7)_1px,transparent_1px)] [background-size:46px_46px] [mask-image:linear-gradient(rgb(0,0,0)_55%,transparent_100%)]" aria-hidden="true" />
@@ -1623,7 +1623,7 @@ function Index() {
               </section>
               <section className="relative py-16 px-0 md:py-24 md:px-0">
                 <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
-                  <div className="opacity-0 translate-y-4 delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
+                  <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                     <div className="shadow-elegant items-center border-[hsl(var(--border)/0.7)]! rounded-[1.5rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] flex flex-col gap-6 ml-auto mr-auto max-w-3xl overflow-hidden relative text-center bg-white p-8 md:p-12">
                       <div className="blur-3xl rounded-[9999px] h-56 pointer-events-none absolute -right-20 -top-24 w-56 [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
                       <h2 className="font-display font-extrabold m-0 relative text-balance text-site-import-foreground text-[25.6px] tracking-[-0.64px] leading-[30.72px] md:text-[37.6px] md:tracking-[-0.94px] md:leading-9">Vamos começar pelo que seu negócio realmente precisa?</h2>
