@@ -12,9 +12,9 @@ import { portfolioCategories } from "@/lib/portfolio-categories";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({ meta: [
     { title: "Nosso Portfólio por Serviço | TRIA+ Soluções Digitais" },
-    { name: "description", content: "Trabalhos reais da equipe TRIA em planilhas financeiras, consultoria empresarial, Social Media e eventos ao vivo." },
+    { name: "description", content: "Trabalhos reais da equipe TRIA em planilhas financeiras, consultoria empresarial e Social Media." },
     { property: "og:title", content: "Nosso Portfólio por Serviço | TRIA+ Soluções Digitais" },
-    { property: "og:description", content: "Conheça os trabalhos da TRIA organizados por serviço: planilhas financeiras, consultorias empresariais, Social Media e eventos ao vivo." },
+    { property: "og:description", content: "Conheça os trabalhos da TRIA organizados por serviço: planilhas financeiras, consultorias empresariais e Social Media." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
