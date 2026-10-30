@@ -15,3 +15,11 @@
 .import-instagram-gradient:hover { filter: brightness(1.06); }
 .import-message-label { font-size: 0.6rem; color: var(--color-site-import-primary); margin-bottom: 0.25rem; }
 @media (prefers-reduced-motion: reduce) { [data-site-import-document-lang] *, [data-site-import-document-lang] *::before, [data-site-import-document-lang] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Espaçamento mais compacto na landing: menos respiro entre seções e entre título e cards */
+[data-landing-compact] > section.py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+@media (min-width: 768px) {
+  [data-landing-compact] > section.py-16 { padding-top: 4.25rem; padding-bottom: 4.25rem; }
+}
+[data-landing-compact] .grid.mt-12 { margin-top: 2.5rem; }
+[data-landing-compact] [data-scroll-3d] { margin-top: 2.5rem; }
