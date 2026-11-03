@@ -23,3 +23,84 @@
 }
 [data-landing-compact] .grid.mt-12 { margin-top: 2.5rem; }
 [data-landing-compact] [data-scroll-3d] { margin-top: 2.5rem; }
+/* ===== Tema escuro premium TRIA+ (preto + verde esmeralda) ===== */
+.tria-dark {
+  --tria-bg: hsl(165 30% 3%);
+  --tria-card: hsl(165 35% 6% / 0.72);
+  --tria-card-strong: hsl(165 40% 8% / 0.88);
+  --tria-line: hsl(160 70% 45% / 0.22);
+  --tria-line-strong: hsl(160 80% 50% / 0.45);
+  --tria-green: hsl(158 85% 50%);
+  --tria-text: hsl(150 10% 96%);
+  --tria-muted: hsl(160 8% 72%);
+  --background: 165 30% 4%; --foreground: 150 10% 96%; --card: 165 35% 7%;
+  --muted: 165 25% 11%; --muted-foreground: 160 8% 72%; --border: 160 50% 30%;
+  --secondary: 165 30% 10%; --secondary-foreground: 150 10% 96%;
+  --site-import-background: oklch(0.14 0.02 165);
+  --site-import-foreground: oklch(0.97 0.005 160);
+  --site-import-muted-foreground: oklch(0.79 0.015 165);
+  --site-import-card: oklch(0.2 0.03 165 / 0.7);
+  --site-import-muted: oklch(0.24 0.04 165);
+  --site-import-border: oklch(0.6 0.12 165 / 0.3);
+  --color-site-import-foreground: var(--site-import-foreground);
+  --color-site-import-muted-foreground: var(--site-import-muted-foreground);
+  --color-site-import-background: var(--site-import-background);
+  --color-site-import-muted: var(--site-import-muted);
+  --color-site-import-border: var(--site-import-border);
+  position: relative;
+  isolation: isolate;
+  color: var(--tria-text);
+  background-color: var(--tria-bg) !important;
+  background-image:
+    radial-gradient(40% 30% at 0% 8%, hsl(158 85% 40% / 0.35), transparent 70%),
+    radial-gradient(38% 28% at 100% 22%, hsl(160 90% 38% / 0.3), transparent 70%),
+    radial-gradient(42% 30% at 0% 52%, hsl(158 80% 35% / 0.25), transparent 70%),
+    radial-gradient(40% 30% at 100% 78%, hsl(162 85% 36% / 0.28), transparent 70%),
+    radial-gradient(60% 25% at 50% 100%, hsl(160 80% 30% / 0.25), transparent 70%),
+    linear-gradient(180deg, hsl(165 35% 4%), hsl(165 30% 2.5%) 50%, hsl(165 35% 4%)) !important;
+}
+/* curvas abstratas sutis */
+.tria-dark::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(120% 60% at 110% -10%, transparent 59.6%, hsl(158 85% 50% / 0.35) 59.8%, transparent 60.1%),
+    radial-gradient(110% 50% at -15% 45%, transparent 59.6%, hsl(158 85% 50% / 0.22) 59.8%, transparent 60.1%),
+    radial-gradient(120% 55% at 115% 85%, transparent 59.6%, hsl(158 85% 50% / 0.18) 59.8%, transparent 60.1%);
+}
+/* seções e superfícies claras -> transparentes / escuras */
+.tria-dark section, .tria-dark footer { background-color: transparent !important; }
+.tria-dark section:nth-of-type(even) { background-image: linear-gradient(180deg, transparent, hsl(165 40% 6% / 0.45) 20%, hsl(165 40% 6% / 0.45) 80%, transparent) !important; }
+.tria-dark .bg-white, .tria-dark [class*="bg-[#ffffff"], .tria-dark [class*="bg-[#fffffff"] {
+  background-color: var(--tria-card) !important;
+  border-color: var(--tria-line) !important;
+  backdrop-filter: blur(10px);
+}
+.tria-dark > .bg-white, .tria-dark.bg-white { background-color: var(--tria-bg) !important; backdrop-filter: none; }
+.tria-dark [class*="bg-[hsl(160_55%_96%"], .tria-dark [class*="bg-[#f3f5f7"], .tria-dark [class*="bg-[hsl(199_92%_96%"], .tria-dark [class*="bg-[hsl(var(--secondary"] {
+  background-color: hsl(160 60% 30% / 0.16) !important;
+}
+.tria-dark [class*="bg-[hsl(200_14%_9%"] { background-color: hsl(160 60% 45% / 0.14) !important; }
+.tria-dark .from-brand-soft, .tria-dark .from-accentBlue-soft { --tw-gradient-from: hsl(165 40% 8% / 0.9) !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+.tria-dark .to-brand-soft, .tria-dark .to-accentBlue-soft { --tw-gradient-to: hsl(165 35% 6% / 0.9) !important; }
+.tria-dark .via-brand-soft, .tria-dark .via-background, .tria-dark .via-white\/45 { --tw-gradient-stops: var(--tw-gradient-from), hsl(165 35% 6% / 0.6), var(--tw-gradient-to) !important; }
+.tria-dark .bg-hero-glow { background-image: radial-gradient(58% 52% at 88% 6%, hsl(158 85% 45% / 0.22), transparent 72%), radial-gradient(46% 46% at 4% 2%, hsl(160 85% 40% / 0.18), transparent 70%) !important; }
+/* cards */
+.tria-dark [class*="rounded-[1rem]"], .tria-dark [class*="rounded-[1.25rem]"], .tria-dark [class*="rounded-[1.5rem]"], .tria-dark [class*="rounded-2xl"], .tria-dark [class*="rounded-3xl"] { border-color: var(--tria-line) !important; }
+.tria-dark .shadow-card { --tw-shadow: 0 0 0 1px hsl(160 70% 45% / 0.08), 0 20px 45px -25px hsl(0 0% 0% / 0.8) !important; }
+.tria-dark .shadow-elegant, .tria-dark .shadow-card:hover { --tw-shadow: 0 0 0 1px hsl(158 85% 50% / 0.25), 0 24px 60px -28px hsl(158 85% 40% / 0.45) !important; }
+.tria-dark .group:hover, .tria-dark [data-consultoria-card]:hover > div { border-color: var(--tria-line-strong) !important; }
+/* textos */
+.tria-dark [class*="text-[#14181a"], .tria-dark .text-foreground, .tria-dark .text-ink { color: var(--tria-text) !important; }
+.tria-dark [class*="text-[hsl(var(--muted-foreground"], .tria-dark .text-muted-foreground { color: var(--tria-muted) !important; }
+.tria-dark [class*="text-[hsl(163_84%_44%)]"] { color: var(--tria-green) !important; }
+.tria-dark input, .tria-dark textarea, .tria-dark select {
+  background-color: hsl(165 35% 5% / 0.8) !important; color: var(--tria-text) !important; border-color: var(--tria-line) !important;
+}
+.tria-dark input::placeholder, .tria-dark textarea::placeholder { color: hsl(160 8% 55%) !important; }
+.tria-dark input:focus, .tria-dark textarea:focus { border-color: var(--tria-green) !important; box-shadow: 0 0 0 3px hsl(158 85% 50% / 0.18) !important; }
+/* menu */
+.tria-dark header { background-color: hsl(165 35% 3% / 0.72) !important; border-bottom: 1px solid var(--tria-line) !important; }
+.tria-dark header nav a:hover { background-color: hsl(158 85% 45% / 0.12) !important; color: var(--tria-green) !important; }
+.import-menu { background: hsl(165 35% 4%); color: hsl(150 10% 96%); border-left-color: hsl(160 70% 45% / 0.25); }
+.import-menu nav a:hover { background: hsl(158 85% 45% / 0.12); color: hsl(158 85% 55%); }
+.tria-dark .import-message { background: hsl(158 60% 25% / 0.35); }
