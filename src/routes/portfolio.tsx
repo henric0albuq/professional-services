@@ -42,7 +42,7 @@ function Index() {
             <ol className="flex list-none m-0 max-h-screen p-4 fixed top-0 w-full z-100 flex-col-reverse md:max-w-[420px] md:flex-col sm:bottom-0 sm:right-0 sm:top-auto" tabIndex={-1} />
           </div>
           <section aria-label="Notifications alt+T" tabIndex={-1} aria-live="polite" aria-relevant="additions text" aria-atomic="false" />
-          <div className="flex flex-col min-h-screen overflow-x-clip bg-white">
+          <div className="tria-dark flex flex-col min-h-screen overflow-x-clip bg-white">
             <header className="backdrop-blur-sm border-b border-transparent! sticky top-0 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] w-full z-50 bg-[#ffffffb3] [animation-duration:300ms] [backdrop-filter:var(--tw-backdrop-blur)]">
               <div className="items-center flex gap-4 h-16 justify-between ml-auto mr-auto pl-5 pr-5 w-full md:h-20 xl:max-w-7xl">
                 <a className="shrink-0 text-site-import-foreground [text-decoration:inherit]" aria-label="TRIA+ Soluções Digitais - página inicial" href="/">
