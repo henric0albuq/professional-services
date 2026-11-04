@@ -138,3 +138,5 @@
 @media (max-width: 767px) {
   .tria-dark::before, .tria-dark::after { animation: none; }
 }
+/* continuidade: nenhuma seção pinta fundo próprio */
+.tria-dark main > section, .tria-dark main > section[class*="bg-"] { background: transparent !important; }
