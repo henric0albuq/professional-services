@@ -68,14 +68,14 @@
     radial-gradient(35% 35% at 20% 25%, hsl(158 85% 38% / 0.45), transparent 70%),
     radial-gradient(30% 30% at 80% 70%, hsl(165 90% 30% / 0.4), transparent 70%),
     radial-gradient(40% 40% at 60% 20%, hsl(150 70% 20% / 0.5), transparent 70%);
-  filter: blur(40px);
+
   animation: tria-aurora-a 22s ease-in-out infinite alternate;
 }
 .tria-dark::after {
   background:
     radial-gradient(30% 30% at 75% 30%, hsl(160 95% 45% / 0.25), transparent 70%),
     radial-gradient(35% 35% at 25% 80%, hsl(158 80% 35% / 0.35), transparent 70%);
-  filter: blur(60px);
+
   animation: tria-aurora-b 28s ease-in-out infinite alternate;
 }
 @keyframes tria-aurora-a {
@@ -95,7 +95,7 @@
 .tria-dark .bg-white, .tria-dark [class*="bg-[#ffffff"], .tria-dark [class*="bg-[#fffffff"] {
   background-color: var(--tria-card) !important;
   border-color: var(--tria-line) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: none;
 }
 .tria-dark > .bg-white, .tria-dark.bg-white { background-color: var(--tria-bg) !important; backdrop-filter: none; }
 .tria-dark [class*="bg-[hsl(160_55%_96%"], .tria-dark [class*="bg-[#f3f5f7"], .tria-dark [class*="bg-[hsl(199_92%_96%"], .tria-dark [class*="bg-[hsl(var(--secondary"] {
@@ -131,3 +131,12 @@
 .tria-dark .bg-site-import-foreground * { color: inherit !important; }
 .tria-dark header .bg-white, .tria-dark header nav a { background-color: transparent !important; border-color: transparent !important; backdrop-filter: none; }
 .tria-dark header nav a[aria-current="page"], .tria-dark header nav a.active { background-color: hsl(158 85% 45% / 0.14) !important; color: var(--tria-green) !important; }
+/* performance: sem desfoque pesado; camadas fixas isoladas na GPU */
+.tria-dark::before, .tria-dark::after { contain: strict; backface-visibility: hidden; }
+.tria-dark * { backdrop-filter: none !important; }
+.tria-dark header { background-color: hsl(165 35% 4% / 0.92) !important; }
+@media (max-width: 767px) {
+  .tria-dark::before, .tria-dark::after { animation: none; }
+}
+/* continuidade: nenhuma seção pinta fundo próprio */
+.tria-dark section, .tria-dark section[class*="bg-"] { background: transparent !important; }
