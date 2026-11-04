@@ -59,14 +59,36 @@
     radial-gradient(60% 25% at 50% 100%, hsl(160 80% 30% / 0.25), transparent 70%),
     linear-gradient(180deg, hsl(165 35% 4%), hsl(165 30% 2.5%) 50%, hsl(165 35% 4%)) !important;
 }
-/* curvas abstratas sutis */
-.tria-dark::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(120% 60% at 110% -10%, transparent 59.6%, hsl(158 85% 50% / 0.35) 59.8%, transparent 60.1%),
-    radial-gradient(110% 50% at -15% 45%, transparent 59.6%, hsl(158 85% 50% / 0.22) 59.8%, transparent 60.1%),
-    radial-gradient(120% 55% at 115% 85%, transparent 59.6%, hsl(158 85% 50% / 0.18) 59.8%, transparent 60.1%);
+/* degradê dinâmico animado (CSS puro) */
+.tria-dark::before, .tria-dark::after {
+  content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none; will-change: transform;
 }
+.tria-dark::before {
+  background:
+    radial-gradient(35% 35% at 20% 25%, hsl(158 85% 38% / 0.45), transparent 70%),
+    radial-gradient(30% 30% at 80% 70%, hsl(165 90% 30% / 0.4), transparent 70%),
+    radial-gradient(40% 40% at 60% 20%, hsl(150 70% 20% / 0.5), transparent 70%);
+  filter: blur(40px);
+  animation: tria-aurora-a 22s ease-in-out infinite alternate;
+}
+.tria-dark::after {
+  background:
+    radial-gradient(30% 30% at 75% 30%, hsl(160 95% 45% / 0.25), transparent 70%),
+    radial-gradient(35% 35% at 25% 80%, hsl(158 80% 35% / 0.35), transparent 70%);
+  filter: blur(60px);
+  animation: tria-aurora-b 28s ease-in-out infinite alternate;
+}
+@keyframes tria-aurora-a {
+  0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+  50% { transform: translate3d(6%,4%,0) rotate(20deg) scale(1.1); }
+  100% { transform: translate3d(-5%,6%,0) rotate(-15deg) scale(0.95); }
+}
+@keyframes tria-aurora-b {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-7%,-5%,0) scale(1.15); }
+  100% { transform: translate3d(5%,-3%,0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .tria-dark::before, .tria-dark::after { animation: none; } }
 /* seções e superfícies claras -> transparentes / escuras */
 .tria-dark section, .tria-dark footer { background-color: transparent !important; }
 .tria-dark section:nth-of-type(even) { background-image: linear-gradient(180deg, transparent, hsl(165 40% 6% / 0.45) 20%, hsl(165 40% 6% / 0.45) 80%, transparent) !important; }
