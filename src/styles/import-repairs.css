@@ -91,7 +91,7 @@
 @media (prefers-reduced-motion: reduce) { .tria-dark::before, .tria-dark::after { animation: none; } }
 /* seções e superfícies claras -> transparentes / escuras */
 .tria-dark section, .tria-dark footer { background-color: transparent !important; }
-.tria-dark section:nth-of-type(even) { background-image: linear-gradient(180deg, transparent, hsl(165 40% 6% / 0.45) 20%, hsl(165 40% 6% / 0.45) 80%, transparent) !important; }
+.tria-dark section:nth-of-type(even) { background-image: none !important; }
 .tria-dark .bg-white, .tria-dark [class*="bg-[#ffffff"], .tria-dark [class*="bg-[#fffffff"] {
   background-color: var(--tria-card) !important;
   border-color: var(--tria-line) !important;
