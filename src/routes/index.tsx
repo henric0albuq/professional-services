@@ -1,3 +1,4 @@
+import triaLogo from "@/assets/tria-logo.png.asset.json";
 import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
@@ -167,7 +168,7 @@ function Index() {
             <header className="backdrop-blur-sm border-b border-transparent! sticky top-0 duration-300 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] w-full z-50 bg-[#ffffffb3] [animation-duration:300ms] [backdrop-filter:var(--tw-backdrop-blur)]">
               <div className="items-center flex gap-4 h-16 justify-between ml-auto mr-auto pl-5 pr-5 w-full md:h-20 xl:max-w-7xl">
                 <a className="shrink-0 text-site-import-foreground [text-decoration:inherit]" aria-label="TRIA+ Soluções Digitais - página inicial" href="/">
-                  <img className="brightness-[1.1] block h-9 max-w-full mix-blend-multiply object-contain align-middle w-auto [filter:var(--tw-blur)_var(--tw-brightness)] md:h-11" alt="TRIA+ Soluções Digitais - marketing e planilhas financeiras para negócios" src="/site-assets/c1961fbbf73b5258.webp" {...({ loading: "eager", decoding: "async" } as any)} />
+                  <img className="block h-9 max-w-full mix-blend-screen object-contain align-middle w-auto md:h-11" alt="TRIA+ Soluções Digitais - marketing e planilhas financeiras para negócios" src={triaLogo.url} {...({ loading: "eager", decoding: "async" } as any)} />
                 </a>
                 <nav className="items-center gap-1 hidden xl:flex" aria-label="Navegação principal">
                   <a className="bg-[hsl(160_55%_96%)] rounded-[9999px] text-site-import-primary text-[0.875rem] font-medium leading-5 pb-2 pl-3.5 pr-3.5 pt-2 duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] [text-decoration:inherit]" href="#inicio">Início</a>
