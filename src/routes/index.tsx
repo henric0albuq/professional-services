@@ -1,5 +1,5 @@
 import triaLogo from "@/assets/tria-logo-transparente.png.asset.json";
-import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
 import { createFileRoute } from "@tanstack/react-router";
@@ -142,6 +142,11 @@ function Index() {
     return () => cleanups.forEach((f) => f());
   }, []);
   const entries = [["NOME", fields["name"]], ["TIPO DE PROJETO", projectType], ["E-MAIL", fields["email"]], ["TELEFONE", fields["phone"]], ["INVESTIMENTO", fields["budget"]], ["SOBRE O MEU NEGÓCIO", fields["business"]], ["O QUE PRECISO", fields["needs"]]].filter((entry) => entry[1]?.trim());
+  const chatRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = chatRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [fields, projectType]);
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -1555,7 +1560,7 @@ function Index() {
                                   <svg className="wa-ha" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
                                 </span>
                               </div>
-                              <div className="wa-chat">
+                              <div className="wa-chat" ref={chatRef}>
                                 <p className="wa-lock">Suas mensagens são de ponta a ponta. Ninguém fora desta conversa pode lê-las.</p>
                                 <div className="wa-bubble wa-bubble--in">Olá! Preencha os campos ao lado que eu monto a mensagem para você.</div>
                                 {entries.map(([label, value]) => <div className="wa-bubble wa-bubble--out" key={label}><span className="wa-bubble-label">{label}</span>{value}<span className="wa-bubble-meta">agora <svg aria-hidden="true" className="wa-check" viewBox="0 0 18 12"><path d="M1 6.5 4 9.5 10.5 2.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path><path d="M7 6.5 10 9.5 16.5 2.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path></svg></span></div>)}
