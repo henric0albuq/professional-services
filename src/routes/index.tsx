@@ -1,5 +1,5 @@
 import triaLogo from "@/assets/tria-logo-transparente.png.asset.json";
-import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import repairCSS from "../styles/import-repairs.css?inline";
 import { createFileRoute } from "@tanstack/react-router";
@@ -142,6 +142,11 @@ function Index() {
     return () => cleanups.forEach((f) => f());
   }, []);
   const entries = [["NOME", fields["name"]], ["TIPO DE PROJETO", projectType], ["E-MAIL", fields["email"]], ["TELEFONE", fields["phone"]], ["INVESTIMENTO", fields["budget"]], ["SOBRE O MEU NEGÓCIO", fields["business"]], ["O QUE PRECISO", fields["needs"]]].filter((entry) => entry[1]?.trim());
+  const chatRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = chatRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [fields, projectType]);
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -1527,30 +1532,43 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-100 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <div className="static lg:top-28 xl:sticky">
-                        <div className="ml-auto mr-auto max-w-sm w-full">
-                          <div className="shadow-elegant bg-site-import-foreground border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] p-2">
-                            <div className="rounded-[1.9rem] flex flex-col h-[30rem] overflow-hidden bg-[#f3f5f799]">
-                              <div className="items-center bg-site-import-primary flex gap-3 pb-3 pl-4 pr-4 pt-3 text-white">
-                                <span className="rounded-[9999px] grid h-9 place-items-center w-9 bg-[#ffffff26]">
-                                  <svg className="block h-4 align-middle w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
-                                    <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-                                  </svg>
+                                                <div className="ml-auto mr-auto max-w-sm w-full">
+                          <div className="wa-phone">
+                            <span aria-hidden="true" className="wa-phone-side wa-phone-side--up"></span>
+                            <span aria-hidden="true" className="wa-phone-side wa-phone-side--down"></span>
+                            <span aria-hidden="true" className="wa-phone-side wa-phone-side--power"></span>
+                            <div className="wa-screen">
+                              <div className="wa-statusbar">
+                                <span className="wa-statusbar-time">9:41</span>
+                                <span aria-hidden="true" className="wa-notch"></span>
+                                <span className="wa-statusbar-icons">
+                                  <svg aria-hidden="true" className="wa-sig" viewBox="0 0 20 12"><rect x="0" y="7" width="3" height="5" rx="1"></rect><rect x="5" y="5" width="3" height="7" rx="1"></rect><rect x="10" y="2.5" width="3" height="9.5" rx="1"></rect><rect x="15" y="0" width="3" height="12" rx="1"></rect></svg>
+                                  <svg aria-hidden="true" className="wa-wifi" viewBox="0 0 16 12"><path d="M8 11.2 5.4 8.3a3.7 3.7 0 0 1 5.2 0zM8 7.1c-1.6 0-3 .6-4.1 1.6L2.3 7a8 8 0 0 1 11.4 0l-1.6 1.7A6 6 0 0 0 8 7.1zM8 3.2c-2.6 0-5 1-6.8 2.7L0 4.7a11.4 11.4 0 0 1 16 0l-1.2 1.2A9.6 9.6 0 0 0 8 3.2z"></path></svg>
+                                  <svg aria-hidden="true" className="wa-batt" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="currentColor" strokeOpacity="0.45"></rect><rect x="2.5" y="2.5" width="14" height="7" rx="1.6"></rect><path d="M24 4.2v3.6a2 2 0 0 0 0-3.6z"></path></svg>
                                 </span>
-                                <div className="min-w-0">
-                                  <p className="font-display text-[0.875rem] font-semibold leading-5 m-0 overflow-hidden text-ellipsis text-pretty whitespace-nowrap">TRIA+ Soluções Digitais</p>
-                                  <p className="text-[0.68rem] m-0 text-pretty text-[#ffffffbf]">(61) 99231-6112 • online</p>
+                              </div>
+                              <div className="wa-header">
+                                <svg aria-hidden="true" className="wa-back" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+                                <span className="wa-avatar"><img alt="TRIA+ Soluções Digitais" src={triaLogo.url} /></span>
+                                <div className="wa-who">
+                                  <p className="wa-name">TRIA+ Soluções Digitais</p>
+                                  <p className="wa-presence">online</p>
                                 </div>
-                              </div>
-                              <div className="space-y-2.5 flex-1 overflow-y-auto pb-4 pl-3 pr-3 pt-4">
-                                <div className="shadow-sm rounded-bl-[calc(1rem_-_4px)]! rounded-[1rem] shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] text-[0.82rem] leading-relaxed max-w-[85%] pb-2.5 pl-3.5 pr-3.5 pt-2.5 bg-white text-[#14181ad9]">Olá! Preencha os campos ao lado que eu monto a mensagem para você.</div>{entries.map(([label, value]) => <div className="import-message" key={label}><div className="import-message-label">{label}</div>{value}<div className="text-right text-site-import-muted-foreground text-xs">agora ✓✓</div></div>)}
-                              </div>
-                              <div className="items-center border-[hsl(var(--border)/0.6)]! border-t flex gap-2 pb-2.5 pl-3 pr-3 pt-2.5 bg-[#ffffffcc]">
-                                <span className="rounded-[9999px] flex-1 text-[0.7rem] pb-2 pl-3 pr-3 pt-2 bg-[#f3f5f7] text-site-import-muted-foreground">mensagem pronta para enviar</span>
-                                <span className="rounded-[9999px] grid h-9 place-items-center duration-150 transition-colors ease-[cubic-bezier(0.4,0,0.2,1)] w-9 bg-[#f3f5f7] text-site-import-muted-foreground">
-                                  <svg className="block h-4 align-middle w-4" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                                    <path d="M2 21l21-9L2 3v7l15 2-15 2z" />
-                                  </svg>
+                                <span aria-hidden="true" className="wa-head-actions">
+                                  <svg className="wa-ha wa-ha--video" viewBox="0 0 24 24"><path d="M15 10.5V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-3.5l6 4v-11z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"></path></svg>
+                                  <svg className="wa-ha" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"></path></svg>
+                                  <svg className="wa-ha wa-ha--dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
                                 </span>
+                              </div>
+                              <div className="wa-chat" ref={chatRef}>
+                                <p className="wa-lock">Suas mensagens são de ponta a ponta. Ninguém fora desta conversa pode lê-las.</p>
+                                <div className="wa-bubble wa-bubble--in">Olá! Preencha os campos ao lado que eu monto a mensagem para você.</div>
+                                {entries.map(([label, value]) => <div className="wa-bubble wa-bubble--out" key={label}><span className="wa-bubble-label">{label}</span>{value}<span className="wa-bubble-meta">agora <svg aria-hidden="true" className="wa-check" viewBox="0 0 18 12"><path d="M1 6.5 4 9.5 10.5 2.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path><path d="M7 6.5 10 9.5 16.5 2.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path></svg></span></div>)}
+                              </div>
+                              <div className="wa-inputbar">
+                                <span aria-hidden="true" className="wa-emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.7"></circle><path d="M8.5 14.5a4.2 4.2 0 0 0 7 0" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"></path><circle cx="9" cy="9.8" r="1.1"></circle><circle cx="15" cy="9.8" r="1.1"></circle></svg></span>
+                                <span className="wa-field">Mensagem</span>
+                                <span aria-hidden="true" className="wa-send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"></path></svg></span>
                               </div>
                             </div>
                           </div>
