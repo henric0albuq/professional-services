@@ -1569,7 +1569,6 @@ function Index() {
                           </div>
                           <p className="text-[0.875rem] leading-relaxed m-0 mt-4! text-center text-pretty text-site-import-muted-foreground">A mensagem é montada conforme você preenche. Ao clicar, o WhatsApp abre com o texto pronto — você só confirma o envio.</p>
                         </div>
-                        </div>
                       </div>
                     </div>
                   </div>
