@@ -5,3 +5,4 @@
 - [x] Criar acesso administrativo seguro por e-mail e senha, sem dados de perfil.
 - [x] Permitir adicionar, editar e remover fotos e descrições nas quatro categorias.
 - [x] Verificar alterações no portfólio público e restrição do acesso administrativo.
+- [x] Trocar o WhatsApp de todas as seções e do rodapé por (61) 99603-8347.
