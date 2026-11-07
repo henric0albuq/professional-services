@@ -6,3 +6,5 @@
 - [x] Permitir adicionar, editar e remover fotos e descrições nas quatro categorias.
 - [x] Verificar alterações no portfólio público e restrição do acesso administrativo.
 - [x] Trocar o WhatsApp de todas as seções e do rodapé por (61) 99603-8347.
+- [ ] Ajustar cards e botões da landing page no celular e verificar em diferentes larguras.
+- [ ] Substituir o acesso administrativo existente por novo e-mail e senha, preservando as fotos.
