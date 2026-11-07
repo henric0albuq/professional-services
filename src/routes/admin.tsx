@@ -112,7 +112,7 @@ function AccountSettings({ session }: { session: Session }) {
     event.preventDefault();
     if (busy || !session.user.email) return;
     setBusy(true); setMessage(""); setFailed(false);
-    const client = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY, {
+    const client = createClient(import.meta.env['VITE_SUPABASE_URL'], import.meta.env['VITE_SUPABASE_PUBLISHABLE_KEY'], {
       auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
     });
     try {
