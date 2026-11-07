@@ -45,9 +45,9 @@ function AdminPage() {
   return (
     <main className="min-h-screen bg-background p-4 md:p-8">
       <div className="mx-auto max-w-5xl space-y-6">
-        <header className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold">Área administrativa — Portfólio</h1>
-          <div className="flex gap-2">
+        <header className="grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+          <h1 className="min-w-0 break-words text-2xl font-bold">Área administrativa — Portfólio</h1>
+          <div className="flex shrink-0 gap-2">
             <Button asChild variant="outline"><Link to="/portfolio">Ver portfólio</Link></Button>
             {session && <Button variant="ghost" onClick={() => supabase.auth.signOut()}>Sair</Button>}
           </div>
@@ -87,7 +87,7 @@ function LoginForm() {
           {msg && <p className="text-sm text-muted-foreground">{msg}</p>}
           <Button type="submit" className="w-full">{mode === "login" ? "Entrar" : "Criar conta"}</Button>
           {!adminExists && (
-            <Button type="button" variant="link" className="w-full" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
+            <Button type="button" variant="link" className="h-auto min-h-10 w-full whitespace-normal" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
               {mode === "login" ? "Primeiro acesso? Criar conta de administrador" : "Já tenho conta"}
             </Button>
           )}
