@@ -7,4 +7,5 @@
 - [x] Verificar alterações no portfólio público e restrição do acesso administrativo.
 - [x] Trocar o WhatsApp de todas as seções e do rodapé por (61) 99603-8347.
 - [x] Ajustar cards e botões da landing page no celular e verificar em diferentes larguras.
-- [ ] Substituir o acesso administrativo existente por novo e-mail e senha, preservando as fotos. Bloqueio: exclusão da conta antiga exige ação do proprietário em Mais → Usuários; não há ferramenta de exclusão de usuários do Lovable Cloud disponível ao agente.
+- [ ] Implementar troca segura de e-mail e senha na própria conta administrativa, preservando as fotos e permissões.
+- [ ] Testar validação, reautenticação e formulários no computador e celular sem alterar as credenciais reais.
