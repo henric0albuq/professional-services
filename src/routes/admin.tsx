@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { Session } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
+import { changeAdminAccount } from "@/lib/admin-account";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,7 +54,7 @@ function AdminPage() {
             {session && <Button variant="ghost" onClick={() => supabase.auth.signOut()}>Sair</Button>}
           </div>
         </header>
-        {!session ? <LoginForm /> : !isAdmin ? <p>Esta conta não tem acesso administrativo.</p> : <Manager />}
+        {!session ? <LoginForm /> : !isAdmin ? <p>Esta conta não tem acesso administrativo.</p> : <><AccountSettings session={session} /><Manager /></>}
       </div>
     </main>
   );
@@ -94,6 +96,71 @@ function LoginForm() {
         </form>
       </CardContent>
     </Card>
+  );
+}
+
+function AccountSettings({ session }: { session: Session }) {
+  const [kind, setKind] = useState<"email" | "password">("email");
+  const [value, setValue] = useState("");
+  const [confirmation, setConfirmation] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+  const [failed, setFailed] = useState(false);
+
+  async function submit(event: React.FormEvent) {
+    event.preventDefault();
+    if (busy || !session.user.email) return;
+    setBusy(true); setMessage(""); setFailed(false);
+    const client = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY, {
+      auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    });
+    try {
+      await changeAdminAccount(client, {
+        userId: session.user.id, currentEmail: session.user.email, currentPassword,
+        kind, value, confirmation, redirectTo: `${window.location.origin}/admin`,
+      });
+      setValue(""); setConfirmation("");
+      if (kind === "password") {
+        await supabase.auth.signOut();
+        return;
+      }
+      setMessage("Solicitação enviada. Confirme a alteração pelos links recebidos no e-mail atual e no novo e-mail, conforme solicitado. Até a confirmação, continue usando o e-mail atual.");
+    } catch (error) {
+      setFailed(true);
+      setMessage(error instanceof Error ? error.message : "Não foi possível alterar o acesso.");
+    } finally {
+      setCurrentPassword("");
+      await client.auth.signOut({ scope: "local" }).catch(() => undefined);
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="space-y-4 border-b pb-6" aria-labelledby="account-title">
+      <h2 id="account-title" className="text-xl font-semibold">Segurança da conta</h2>
+      <p className="break-all text-sm text-muted-foreground">E-mail atual: {session.user.email}</p>
+      <div className="flex gap-2" role="group" aria-label="Dados de acesso">
+        <Button type="button" variant={kind === "email" ? "default" : "outline"} disabled={busy} aria-pressed={kind === "email"} onClick={() => { setKind("email"); setValue(""); setConfirmation(""); setCurrentPassword(""); setMessage(""); }}>Trocar e-mail</Button>
+        <Button type="button" variant={kind === "password" ? "default" : "outline"} disabled={busy} aria-pressed={kind === "password"} onClick={() => { setKind("password"); setValue(""); setConfirmation(""); setCurrentPassword(""); setMessage(""); }}>Trocar senha</Button>
+      </div>
+      <form onSubmit={submit} className="max-w-md space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="account-current-password">Senha atual</Label>
+          <Input id="account-current-password" type="password" autoComplete="current-password" required disabled={busy} value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="account-new-value">{kind === "email" ? "Novo e-mail" : "Nova senha"}</Label>
+          <Input key={kind} id="account-new-value" type={kind === "email" ? "email" : "password"} autoComplete={kind === "email" ? "email" : "new-password"} minLength={kind === "password" ? 8 : undefined} required disabled={busy} value={value} onChange={e => setValue(e.target.value)} />
+        </div>
+        {kind === "password" && <div className="space-y-2">
+          <Label htmlFor="account-confirm-password">Confirmar nova senha</Label>
+          <Input id="account-confirm-password" type="password" autoComplete="new-password" minLength={8} required disabled={busy} value={confirmation} onChange={e => setConfirmation(e.target.value)} />
+        </div>}
+        {message && <p role={failed ? "alert" : "status"} className={failed ? "text-sm text-destructive" : "text-sm text-muted-foreground"}>{message}</p>}
+        <Button type="submit" disabled={busy} className="h-auto min-h-10 whitespace-normal">{busy ? "Confirmando…" : kind === "email" ? "Solicitar troca de e-mail" : "Salvar senha e sair"}</Button>
+      </form>
+    </section>
   );
 }
 
