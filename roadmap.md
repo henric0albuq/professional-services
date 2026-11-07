@@ -7,5 +7,5 @@
 - [x] Verificar alterações no portfólio público e restrição do acesso administrativo.
 - [x] Trocar o WhatsApp de todas as seções e do rodapé por (61) 99603-8347.
 - [x] Ajustar cards e botões da landing page no celular e verificar em diferentes larguras.
-- [ ] Implementar troca segura de e-mail e senha na própria conta administrativa, preservando as fotos e permissões.
-- [ ] Testar validação, reautenticação e formulários no computador e celular sem alterar as credenciais reais.
+- [x] Implementar troca segura de e-mail e senha na própria conta administrativa, preservando as fotos e permissões.
+- [x] Testar validação, reautenticação e formulários no computador e celular sem alterar as credenciais reais. Alteração real e confirmação por e-mail ficam para o proprietário; não foram executadas nos testes.
