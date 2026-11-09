@@ -115,6 +115,12 @@
 .tria-dark [class*="text-[#14181a"], .tria-dark .text-foreground, .tria-dark .text-ink { color: var(--tria-text) !important; }
 .tria-dark [class*="text-[hsl(var(--muted-foreground"], .tria-dark .text-muted-foreground { color: var(--tria-muted) !important; }
 .tria-dark [class*="text-[hsl(163_84%_44%)]"] { color: var(--tria-green) !important; }
+/* selo do topo: letras e borda brancas suaves */
+.tria-dark .import-badge-soft {
+  color: hsl(0 0% 100% / 0.92) !important;
+  border-color: hsl(0 0% 100% / 0.5) !important;
+  background-color: hsl(165 25% 3% / 0.72) !important;
+}
 .tria-dark input, .tria-dark textarea, .tria-dark select {
   background-color: hsl(165 35% 5% / 0.8) !important; color: var(--tria-text) !important; border-color: var(--tria-line) !important;
 }
