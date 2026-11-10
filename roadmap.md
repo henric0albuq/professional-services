@@ -9,3 +9,4 @@
 - [x] Ajustar cards e botões da landing page no celular e verificar em diferentes larguras.
 - [x] Implementar troca segura de e-mail e senha na própria conta administrativa, preservando as fotos e permissões.
 - [x] Testar validação, reautenticação e formulários no computador e celular sem alterar as credenciais reais. Alteração real e confirmação por e-mail ficam para o proprietário; não foram executadas nos testes.
+- [ ] Substituir o brilho periódico dos exemplos de Social Media por imagens de cada negócio e conferir no computador e celular.
