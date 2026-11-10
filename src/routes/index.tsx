@@ -1,3 +1,9 @@
+import socialRoupas from "@/assets/social-exemplo-roupas.jpg";
+import socialRestaurante from "@/assets/social-exemplo-restaurante.jpg";
+import socialSalao from "@/assets/social-exemplo-salao.jpg";
+import socialProdutos from "@/assets/social-exemplo-produtos.jpg";
+import socialAutonomo from "@/assets/social-exemplo-autonomo.jpg";
+import socialEvento from "@/assets/social-exemplo-evento.jpg";
 import triaLogo from "@/assets/tria-logo-transparente.png.asset.json";
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -751,12 +757,9 @@ function Index() {
                   <div className="grid gap-6 mt-12 lg:grid-cols-3 sm:grid-cols-2">
                     <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-brand-soft via-background to-accentBlue-soft inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.25)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialRoupas} alt="Interior de loja de roupas com peças e manequins" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="text-site-import-primary block h-5 align-middle w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
@@ -779,12 +782,9 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-50 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-accentBlue-soft via-background to-brand-soft inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.25)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialRestaurante} alt="Prato servido em um restaurante" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="block h-5 align-middle w-5 text-[#0a4f7f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" />
@@ -810,12 +810,9 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-100 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-brand/30 via-brand-soft to-accentBlue-soft inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.25)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialSalao} alt="Cabeleireira atendendo cliente no salão de beleza" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="text-site-import-primary block h-5 align-middle w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <circle cx="6" cy="6" r="3" />
@@ -842,12 +839,9 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-150 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-brand-soft via-background to-accentBlue-soft inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.25)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialProdutos} alt="Produtos de cerâmica expostos em loja" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="text-site-import-primary block h-5 align-middle w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <path d="M16 10a4 4 0 0 1-8 0" />
@@ -872,12 +866,9 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-200 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-ink via-ink-soft to-brand/45 inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.5)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialAutonomo} alt="Profissional autônomo trabalhando em sua oficina" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="text-site-import-foreground block h-5 align-middle w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <circle cx="12" cy="8" r="5" />
@@ -901,12 +892,9 @@ function Index() {
                     </div>
                     <div className="opacity-100 transform-none delay-250 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                       <article className="group shadow-card hover:-translate-y-1.5 hover:shadow-elegant border-[hsl(var(--border)/0.7)]! rounded-[2.25rem] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] h-full overflow-hidden duration-500 transition-all ease-[cubic-bezier(0.4,0,0.2,1)] bg-white [animation-duration:500ms] hover:border-[hsl(163_84%_44%/0.35)]! hover:shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] hover:transform-[translate(var(--tw-translate-x),var(--tw-translate-y))_rotate(var(--tw-rotate))_skewX(0)_skewY(0)_scaleX(var(--tw-scale-x))_scaleY(var(--tw-scale-y))]">
-                        <div className="h-52 overflow-hidden relative">
-                          <div className="from-brand/30 via-brand-soft to-accentBlue-soft inset-0 absolute [background-image:linear-gradient(to_bottom_right,var(--tw-gradient-stops))]" />
-                          <div className="from-transparent via-white/45 to-transparent bottom-0 left-1/4 absolute top-0 w-1/3 [background-image:linear-gradient(to_right,var(--tw-gradient-stops))]" aria-hidden="true" />
-                          <div className="inset-0 absolute [animation:3.6s_ease-in-out_0s_infinite_normal_none_running_sheen] [background-image:linear-gradient(100deg,_transparent_26%,_hsl(0_0%_100%_/_0.55)_50%,_transparent_74%)]" aria-hidden="true" />
-                          <div className="blur-2xl bg-[hsl(163_84%_44%/0.25)] rounded-[9999px] -bottom-10 h-32 absolute -right-6 w-32 [animation:4s_ease-in-out_0s_infinite_normal_none_running_glow-pulse] [filter:var(--tw-blur)_var(--tw-brightness)]" aria-hidden="true" />
-                          <div className="flex flex-col h-full justify-between p-5 relative">
+                        <div className="social-example-media h-52 overflow-hidden relative">
+                          <img className="absolute inset-0 h-full w-full object-cover" src={socialEvento} alt="Cobertura de uma celebração com celular" loading="lazy" decoding="async" width={1024} height={768} />
+                          <div className="social-example-overlay flex flex-col h-full justify-between p-5 relative">
                             <span className="shadow-sm backdrop-blur items-center border-[hsl(var(--border)/0.6)]! rounded-[9999px] border! shadow-[var(--tw-ring-offset-shadow,0_0_#0000),var(--tw-ring-shadow,0_0_#0000),var(--tw-shadow)] inline-flex h-11 justify-center w-11 bg-[#ffffffe6] [backdrop-filter:var(--tw-backdrop-blur)]">
                               <svg className="text-site-import-primary block h-5 align-middle w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...({ xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24" } as any)}>
                                 <path d="M5.8 11.3 2 22l10.7-3.79" />
