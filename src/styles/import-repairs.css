@@ -228,8 +228,7 @@
   width: min(1180px, 128vw);
   max-width: none;
   height: auto;
-  margin-left: 50%;
-  transform: translateX(-50%) translateZ(0);
+  flex: none;
   margin-bottom: clamp(-9rem, -11vw, -3rem);
   filter: drop-shadow(0 40px 60px rgb(0 0 0 / 0.55)) drop-shadow(0 0 40px hsl(163 84% 44% / 0.18));
   animation: tria-tablet-out 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -245,8 +244,8 @@
   pointer-events: none;
 }
 @keyframes tria-tablet-out {
-  from { opacity: 0; transform: translateX(-50%) translateY(40px) scale(0.92); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(40px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @media (max-width: 640px) {
   .tria-tablet-img { width: 150vw; }
@@ -254,3 +253,5 @@
 @media (prefers-reduced-motion: reduce) {
   .tria-tablet-img { animation: none; }
 }
+
+.tria-tablet-section { overflow-x: clip; overflow-y: visible; z-index: 3; }

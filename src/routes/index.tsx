@@ -1629,7 +1629,7 @@ function Index() {
                   </div>
                 </div>
               </section>
-              <section className="relative py-16 px-0 md:py-24 md:px-0">
+              <section className="tria-tablet-section relative py-16 px-0 md:py-24 md:px-0">
                 <div className="ml-auto mr-auto pl-5 pr-5 w-full xl:max-w-7xl">
                   <div className="opacity-100 transform-none delay-0 duration-700 transition-all ease-[cubic-bezier(0,0,0.2,1)] [animation-duration:700ms] [animation-timing-function:cubic-bezier(0,0,0.2,1)]">
                     <figure className="tria-tablet-stage" aria-label="Folder TRIA+ Soluções Digitais">
