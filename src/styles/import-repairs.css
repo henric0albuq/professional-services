@@ -225,7 +225,9 @@
 }
 .tria-tablet-img {
   display: block;
-  width: min(1180px, 128vw);
+  width: clamp(560px, 118vw, 1500px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 99%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 99%);
   max-width: none;
   height: auto;
   flex: none;
@@ -248,7 +250,7 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @media (max-width: 640px) {
-  .tria-tablet-img { width: 150vw; }
+  .tria-tablet-img { width: 128vw; }
 }
 @media (prefers-reduced-motion: reduce) {
   .tria-tablet-img { animation: none; }
